@@ -48,12 +48,33 @@
         .border-left {
             border-left: solid 2px #ffed00;
         }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #ffed00;
+            border-radius: 5px;
+            border: 2px solid #000000;
+        }
+
+        /* Firefox support */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #ffed00 #000000;
+        }
     </style>
 
 </head>
 
 <body class="text-white">
-    <div class="nav-bar fixed p-8 black z-50 top-0 left-0 right-0 flex justify-between text-xl">
+    <div class="nav-bar hidden md:fixed p-8 black z-50 top-0 left-0 right-0 md:flex justify-between text-xl">
         <p class="font-bold text-[#ffed00] text-4xl ">3</p>
         <nav>
             <div class="px-5">
@@ -72,32 +93,45 @@
     </div>
 
     <div id="home" class="container relative">
-        <div class="hero-section margin-bottom flex flex-cols items-center p-20" data-aos="fade-up">
-            <div class="text">
-                <h1 class="text-6xl font-bold">HI THERE!, I'M CRAN<span class="text-[#ffed00]">3</span></h1>
-                <h2 id="typewriter" class="relative pt-2 text-[#ffed00] text-4xl"></h2>
-                <a href="#portfolio" class="relative top-8 hero-button p-2 hover:p-4 transition-all ease">View
-                    Projects</a>
+        <div class="hero-section margin-bottom flex flex-col lg:flex-row items-center md:justify-between justify-center px-6 md:px-10 lg:px-20 py-16 text-center lg:text-left gap-6"
+            data-aos="fade-up">
+            <div class="text max-w-4xl">
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                    HI THERE!, I'M CRAN<span class="text-[#ffed00]">3</span>
+                </h1>
+                <h2 id="typewriter" class="pt-4 text-2xl md:text-3xl lg:text-4xl text-[#ffed00]"></h2>
+                <a href="#portfolio"
+                    class="inline-block mt-6 hero-button px-4 py-2 hover:px-6 hover:py-3 transition-all ease-in-out duration-200">
+                    View Projects
+                </a>
             </div>
         </div>
 
         <section class="mb-24" id="about" data-aos="fade-up">
-            <h1 class="text-4xl font-bold text-[#ffed00] text-center uppercase mb-4">&target; About Me &target;</h1>
-            <div class="flex flex-cols items-center">
-                <div class="about pl-8 mr-8 font-normal titlecase">
-                    <p class="whitespace-normal flex flex-col items-center justify-center text-xl mt-12">
+            <h1 class="text-center text-[#ffed00] text-4xl font-bold uppercase mb-8">&target; About &target;</h1>
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <!-- Text Section -->
+                <div class="about font-normal text-center lg:text-left max-w-xl" data-aos="fade-up">
+                    <p class="text-lg md:text-xl leading-relaxed md:pl-8 pl-0 space-y-6">
                         <span>I'm a <span class="text-[#ffed00]">frontend developer</span> with a focus on building
-                            <span class="text-[#ffed00]">responsiveness and user-friendly</span> websites using <span
-                                class="text-[#ffed00]">HTML, CSS, JavaScript, Tailwind CSS and React.js</span>.</span>
+                            <span class="text-[#ffed00]">responsive and user-friendly</span> websites using
+                            <span class="text-[#ffed00]">HTML, CSS, JavaScript, Tailwind CSS, and
+                                React.js</span>.</span>
+
                         <span>I've worked on projects ranging from <span class="text-[#ffed00]">crypto landing pages to
-                                e-commerce sites</span>, always aiming for a <span class="text-[#ffed00]">smooth design
-                                and smooth performance</span>.</span>
-                        <span>I'm passionate about learning new tools, improving my craft and <span
-                                class="text-[#ffed00]">turning ideas into well-built digital experiences</span>.</span>
+                                e-commerce sites</span>,
+                            always aiming for <span class="text-[#ffed00]">smooth design and performance</span>.</span>
+
+                        <span>I'm passionate about learning new tools, improving my craft, and
+                            <span class="text-[#ffed00]">turning ideas into well-built digital
+                                experiences</span>.</span>
                     </p>
                 </div>
-                <div class="image-section border-left px-24">
-                    <img class="w-[900px]  h-full" src="logos/file_0000000010f8620aa60d0a29c4fa0915.png">
+
+                <!-- Image Section -->
+                <div class="image-section border-left w-full max-w-md">
+                    <img class="w-full h-auto" src="logos/file_0000000010f8620aa60d0a29c4fa0915.png"
+                        alt="About Me Image" data-aos="fade-up">
                 </div>
             </div>
         </section>
