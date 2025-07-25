@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRAN3 - Hi There!!</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="icon" href="logos/file_0000000010f8620aa60d0a29c4fa0915.png" type="image/png" sizes="32x32">
+    <script src="https://unpkg.com/typewriter-effect@2.18.0/dist/core.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&family=Sora:wght@400;@600&display=swap"
+        rel="stylesheet">
+    <style>
+        .padding {
+            padding-right: 15px;
+        }
+
+        .hero-button {
+            background-color: transparent;
+            border: solid rgb(255, 255, 255) 2px;
+        }
+
+        body {
+            background-color: rgb(6, 6, 6);
+            font-family: 'Sora', sans-serif;
+        }
+
+        .margin-bottom {
+            margin-bottom: 200px;
+            margin-top: 200px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .black {
+            background-color: rgb(6, 6, 6);
+        }
+
+        .border-left {
+            border-left: solid 2px #ffed00;
+        }
+    </style>
+
+</head>
+
+<body class="text-white">
+    <div class="nav-bar fixed p-8 black z-50 top-0 left-0 right-0 flex justify-between text-xl">
+        <p class="font-bold text-[#ffed00] text-4xl ">3</p>
+        <nav>
+            <div class="px-5">
+                <a class="padding text-[#ffed00] hover:text-white transition-all ease" href="#home">&target; Home</a>
+                <a class="padding text-[#ffed00] hover:text-white transition-all ease" href="#about">&target; About
+                    Me</a>
+                <a class="padding text-[#ffed00] hover:text-white transition-all ease" href="#service">&target;
+                    Service</a>
+                <a class="padding text-[#ffed00] hover:text-white transition-all ease" href="#portfolio">&target;
+                    Porfolio</a>
+                <a class="padding text-[#ffed00] hover:text-white transition-all ease" href="#contact">&target;
+                    Contact</a>
+            </div>
+
+        </nav>
+    </div>
+
+    <div id="home" class="container relative">
+        <div class="hero-section margin-bottom flex flex-cols items-center p-20" data-aos="fade-up">
+            <div class="text">
+                <h1 class="text-6xl font-bold">HI THERE!, I'M CRAN<span class="text-[#ffed00]">3</span></h1>
+                <h2 id="typewriter" class="relative pt-2 text-[#ffed00] text-4xl"></h2>
+                <a href="#portfolio" class="relative top-8 hero-button p-2 hover:p-4 transition-all ease">View
+                    Projects</a>
+            </div>
+        </div>
+
+        <section class="mb-24" id="about" data-aos="fade-up">
+            <h1 class="text-4xl font-bold text-[#ffed00] text-center uppercase mb-4">&target; About Me &target;</h1>
+            <div class="flex flex-cols items-center">
+                <div class="about pl-8 mr-8 font-normal titlecase">
+                    <p class="whitespace-normal flex flex-col items-center justify-center text-xl mt-12">
+                        <span>I'm a <span class="text-[#ffed00]">frontend developer</span> with a focus on building
+                            <span class="text-[#ffed00]">responsiveness and user-friendly</span> websites using <span
+                                class="text-[#ffed00]">HTML, CSS, JavaScript, Tailwind CSS and React.js</span>.</span>
+                        <span>I've worked on projects ranging from <span class="text-[#ffed00]">crypto landing pages to
+                                e-commerce sites</span>, always aiming for a <span class="text-[#ffed00]">smooth design
+                                and smooth performance</span>.</span>
+                        <span>I'm passionate about learning new tools, improving my craft and <span
+                                class="text-[#ffed00]">turning ideas into well-built digital experiences</span>.</span>
+                    </p>
+                </div>
+                <div class="image-section border-left px-24">
+                    <img class="w-[900px]  h-full" src="logos/file_0000000010f8620aa60d0a29c4fa0915.png">
+                </div>
+            </div>
+        </section>
+
+        <section id="service" class="mb-24" data-aos="fade-up">
+            <div class="service">
+                <h1 class="text-center text-[#ffed00] text-4xl font-bold uppercase mb-4">&target; Best Services &target;
+                </h1>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6 text-[#ffed00]">
+                    <!-- Landing Page -->
+                    <div class="flex flex-col items-center text-center p-4 border rounded-lg shadow-sm hover:shadow-md transition"
+                        data-aos="fade-up">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                            <rect x="4" y="10" width="40" height="30" rx="3" stroke="#ffed00" stroke-width="2" />
+                            <rect x="48" y="20" width="12" height="20" rx="2" stroke="#ffed00" stroke-width="2" />
+                            <line x1="8" y1="18" x2="40" y2="18" stroke="#ffed00" stroke-width="1.5" />
+                            <line x1="8" y1="24" x2="28" y2="24" stroke="#ffed00" stroke-width="1.5" />
+                            <line x1="8" y1="30" x2="34" y2="30" stroke="#ffed00" stroke-width="1.5" />
+                        </svg>
+                        <h3 class="mt-4 text-lg font-semibold">Landing Page Development</h3>
+                        <p class="text-sm text-white mt-2">Responsive, animated, and conversion-optimized landing
+                            pages for startups and businesses.</p>
+                    </div>
+
+                    <!-- Speed Optimization -->
+                    <div class="flex flex-col items-center text-center p-4 border rounded-lg shadow-sm hover:shadow-md transition"
+                        data-aos="fade-up">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="20" stroke="#ffed00" stroke-width="2" />
+                            <line x1="32" y1="32" x2="46" y2="22" stroke="#ffed00" stroke-width="2" />
+                            <path d="M24 48L26 40" stroke="#ffed00" stroke-width="2" />
+                            <path d="M40 48L38 40" stroke="#ffed00" stroke-width="2" />
+                            <circle cx="32" cy="32" r="3" fill="#ffed00" />
+                        </svg>
+                        <h3 class="mt-4 text-lg font-semibold">Speed Optimization</h3>
+                        <p class="text-sm text-white mt-2">Boost your site’s performance and load times using
+                            Tailwind and clean HTML best practices.</p>
+                    </div>
+
+                    <!-- Templates -->
+                    <div class="flex flex-col items-center text-center p-4 border rounded-lg shadow-sm hover:shadow-md transition"
+                        data-aos="fade-up">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                            <rect x="10" y="10" width="44" height="28" rx="2" stroke="#ffed00" stroke-width="2" />
+                            <rect x="14" y="36" width="36" height="18" rx="2" stroke="#ffed00" stroke-width="2" />
+                            <line x1="16" y1="16" x2="48" y2="16" stroke="#ffed00" stroke-width="1.5" />
+                            <line x1="16" y1="22" x2="38" y2="22" stroke="#ffed00" stroke-width="1.5" />
+                        </svg>
+                        <h3 class="mt-4 text-lg font-semibold">Web Templates</h3>
+                        <p class="text-sm text-white mt-2">Sell or offer custom HTML & Tailwind CSS templates for
+                            fast site creation.</p>
+                    </div>
+
+                    <!-- Portfolio Sites -->
+                    <div class="flex flex-col items-center text-center p-4 border rounded-lg shadow-sm hover:shadow-md transition"
+                        data-aos="fade-up">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                            <rect x="8" y="12" width="48" height="36" rx="2" stroke="#ffed00" stroke-width="2" />
+                            <circle cx="20" cy="24" r="4" stroke="black" stroke-width="2" />
+                            <line x1="30" y1="20" x2="48" y2="20" stroke="#ffed00" stroke-width="1.5" />
+                            <line x1="30" y1="26" x2="48" y2="26" stroke="#ffed00" stroke-width="1.5" />
+                            <line x1="16" y1="36" x2="48" y2="36" stroke="#ffed00" stroke-width="1.5" />
+                        </svg>
+                        <h3 class="mt-4 text-lg font-semibold">Portfolio Websites</h3>
+                        <p class="text-sm text-white mt-2">Clean, modern personal websites for creatives, developers,
+                            and freelancers.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="portfolio" class="black" data-aos="fade-up">
+            <h1 class="text-center text-[#ffed00] text-4xl font-bold uppercase mb-4">&target; Portfolio &target;
+            </h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up">
+                <!-- $BALLS Web Platform -->
+                <div class="relative group transition-all duration-300 hover:scale-[1.02]">
+                    <div
+                        class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-300 z-0 bg-[#ffed00]/10">
+                    </div>
+                    <div
+                        class="bg-zinc-900 text-zinc-100 rounded-2xl p-4 shadow-md hover:shadow-[0_0_30px_#ffed00] z-10 relative">
+                        <img src="img/balls.png" alt="$BALLS Thumbnail"
+                            class="w-full h-40 object-cover rounded-xl mb-4">
+                        <h3 class="text-lg font-semibold">$BALLS Web Platform</h3>
+                        <p class="text-sm text-zinc-400 mt-1">A marketing platform for the $BALLS token community with
+                            Web3 integrations.</p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span
+                                class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">React.js</span>
+                            <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Tailwind
+                                CSS</span>
+                            <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Web3</span>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center text-sm">
+                            <a href="https://www.myballs.me" target="_blank" class="text-[#ffed00] hover:underline">Live
+                                Demo</a>
+                            <span class="text-zinc-500 italic">Private Repo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demmendem E-commerce -->
+                <div class="relative group transition-all duration-300 hover:scale-[1.02]" data-aos="fade-up">
+                    <div
+                        class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-300 z-0 bg-[#ffed00]/10">
+                    </div>
+                    <div
+                        class="bg-zinc-900 text-zinc-100 rounded-2xl p-4 shadow-md hover:shadow-[0_0_30px_#ffed00] z-10 relative">
+                        <img src="https://demmendem.com/logo.png" alt="Demmendem Thumbnail"
+                            class="w-full h-40 object-cover rounded-xl mb-4">
+                        <h3 class="text-lg font-semibold">Demmendem E-commerce</h3>
+                        <p class="text-sm text-zinc-400 mt-1">Shopify-based store with custom layout, styling, and
+                            improved user flow.</p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span
+                                class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Shopify</span>
+                            <span
+                                class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Liquid</span>
+                            <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">UI
+                                Design</span>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center text-sm">
+                            <a href="https://demmendem.com" target="_blank" class="text-[#ffed00] hover:underline">Live
+                                Demo</a>
+                            <span class="text-zinc-500 italic">Private Repo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Crofam Token Page -->
+                <div class="relative group transition-all duration-300 hover:scale-[1.02]" data-aos="fade-up">
+                    <div
+                        class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-300 z-0 bg-[#ffed00]/10">
+                    </div>
+                    <div
+                        class="bg-zinc-900 text-zinc-100 rounded-2xl p-4 shadow-md hover:shadow-[0_0_30px_#ffed00] z-10 relative">
+                        <img src="img/Crofam.png" alt="Crofam Thumbnail"
+                            class="w-full h-40 object-cover rounded-xl mb-4">
+                        <h3 class="text-lg font-semibold">Crofam Token Landing</h3>
+                        <p class="text-sm text-zinc-400 mt-1">A fun yet sleek meme token page with smooth scroll and
+                            blockchain vibe.</p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">HTML</span>
+                            <span
+                                class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Tailwind</span>
+                            <span
+                                class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Cronos</span>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center text-sm">
+                            <a href="https://crofamtoken.fun" target="_blank"
+                                class="text-[#ffed00] hover:underline">Live Demo</a>
+                            <span class="text-zinc-500 italic">Private Repo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- $ERIC Token Promo -->
+                <div class="relative group transition-all duration-300 hover:scale-[1.02]" data-aos="fade-up">
+                    <div
+                        class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-300 z-0 bg-[#ffed00]/10">
+                    </div>
+                    <div
+                        class="bg-zinc-900 text-zinc-100 rounded-2xl p-4 shadow-md hover:shadow-[0_0_30px_#ffed00] z-10 relative">
+                        <img src="img/Eric.png" alt="$ERIC Thumbnail" class="w-full h-40 object-cover rounded-xl mb-4">
+                        <h3 class="text-lg font-semibold">$ERIC Token Promo</h3>
+                        <p class="text-sm text-zinc-400 mt-1">Bold animated crypto promo site built for traction and
+                            brand identity.</p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span
+                                class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Tailwind</span>
+                            <span
+                                class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">JavaScript</span>
+                            <span
+                                class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Animation</span>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center text-sm">
+                            <a href="https://erictoken.app" target="_blank" class="text-[#ffed00] hover:underline">Live
+                                Demo</a>
+                            <span class="text-zinc-500 italic">Private Repo</span>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <section id="contact" class="bg-black text-zinc-100 py-16 px-4" data-aos="fade-up">
+            <div class="max-w-xl mx-auto text-center">
+                <h2 class="text-center text-[#ffed00] text-4xl font-bold uppercase mb-4">Contact Me</h2>
+                <p class="text-zinc-400 mb-8 text-sm">Reach out or connect with me on any of the platforms below.</p>
+
+                <div class="flex justify-center gap-6 mb-6">
+                    <!-- GitHub -->
+                    <a href="https://github.com/Cr4N31" target="_blank" class="group">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="1.5"
+                            class="w-8 h-8 transition transform group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_#ffed00]"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16 22v-2.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77a5.07 5.07 0 0 0-.09-3.83s-1.18-.35-3.87 1.48a13.38 13.38 0 0 0-7 0C6.35.59 5.18.94 5.18.94A5.07 5.07 0 0 0 5.09 4.77 5.44 5.44 0 0 0 3 9.52c0 5.42 3.3 6.61 6.44 7a3.37 3.37 0 0 0-.94 2.6V22">
+                            </path>
+                        </svg>
+                    </a>
+
+                    <!-- TikTok -->
+                    <a href="https://www.tiktok.com/@crane.js?_t=ZS-8yJw90THcal&_r=1" target="_blank" class="group">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+                            class="w-8 h-8 fill-white transition transform group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_#ffed00]">
+                            <path
+                                d="M224,80.25v29.5a8,8,0,0,1-16,0V92.64a63.85,63.85,0,0,1-40-12.1v72.46A56.07,56.07,0,1,1,88,104a8,8,0,0,1,0,16,40,40,0,1,0,40,40V32a8,8,0,0,1,8-8h24a8,8,0,0,1,8,8,40,40,0,0,0,40,40A8,8,0,0,1,224,80.25Z" />
+                        </svg>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/_crane_1?igsh=MTFyMDRhbWxuNmd5aQ==" target="_blank"
+                        class="group">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="1.5"
+                            class="w-8 h-8 transition transform group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_#ffed00]"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 1-5 5 5 5 0 0 1 5-5zm4.5-.5h.01">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Email -->
+                <p class="text-sm text-zinc-400">
+                    <span class="font-medium text-[#ffed00]">Email:</span>
+                    <a href="mailto:cran3.js.dev@gmail.com"
+                        class="hover:underline hover:text-[#ffed00] ml-1">cran3.js.dev@gmail.com</a>
+                </p>
+            </div>
+        </section>
+    </div>
+
+
+
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Your Weather Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
