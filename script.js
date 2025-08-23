@@ -1,52 +1,51 @@
-const typewriter = new Typewriter (
-    document.getElementById('typewriter'),{
-        loop: true,
-        delay: 75
-    }
-);
+// script.js
 
-typewriter
-.typeString("Frontend Developer")
-.pauseFor("2000")
-.deleteAll()
-.typeString("UI/UX Designer")
-.pauseFor("2000")
-.deleteAll()
-.typeString("Clean Code Lover")
-.pauseFor("2000")
-.deleteAll()
-.typeString("Let's Work Together")
-.pauseFor("2000")
-.deleteAll()
-.start();
-
-// Initialize AOS  
-AOS.init({  
-  duration: 1000,  
-  easing: "ease-out",  
-  once: false,  
+// Init AOS (once for better perf)
+AOS.init({
+  once: false,
+  duration: 700,
+  easing: 'ease-out'
 });
 
-const toggleBtn = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const backdrop = document.getElementById('backdrop');
+// Typewriter on subheadline
+const twEl = document.getElementById('typewriter');
+if (twEl && window.Typewriter) {
+  const tw = new Typewriter(twEl, { loop: true, delay: 35, deleteSpeed: 20 });
+  tw
+    .typeString("Frontend Developer")
+    .pauseFor(1000)
+    .deleteAll()
+    .typeString("UI Engineer")
+    .pauseFor(1000)
+    .deleteAll()
+    .typeString("Animation Lover")
+    .pauseFor(1000)
+    .start();
+}
 
-    toggleBtn.addEventListener('click', () => {
-      const isOpen = navMenu.classList.contains('translate-y-0');
+// Particles.js configuration
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 100 },
+    shape: { type: "circle" },
+    size: { value: 3 },
+    move: { speed: 2 },
+    line_linked: { enable: true, distance: 150 },
+  },
+  interactivity: {
+    events: {
+      onhover: { enable: true, mode: "grab" },
+      onclick: { enable: true, mode: "push" },
+    },
+  },
+});
 
-      if (isOpen) {
-        navMenu.classList.remove('translate-y-0');
-        navMenu.classList.add('translate-y-[-100%]');
-        backdrop.classList.add('hidden');
-      } else {
-        navMenu.classList.remove('translate-y-[-100%]');
-        navMenu.classList.add('translate-y-0');
-        backdrop.classList.remove('hidden');
-      }
-    });
+new mojs.Shape({
+  parent:       '#deltaeasing',
+  shape:        'circle',
+  scale:        { 0 : 1, easing: 'cubic.out' },
+  fill:         { 'cyan': 'yellow', easing: 'cubic.in' },
 
-    backdrop.addEventListener('click', () => {
-      navMenu.classList.remove('translate-y-0');
-      navMenu.classList.add('translate-y-[-100%]');
-      backdrop.classList.add('hidden');
-    });
+  duration:     2000,
+  repeat:       2,
+})
