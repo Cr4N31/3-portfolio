@@ -40,12 +40,27 @@ particlesJS("particles-js", {
   },
 });
 
-new mojs.Shape({
-  parent:       '#deltaeasing',
-  shape:        'circle',
-  scale:        { 0 : 1, easing: 'cubic.out' },
-  fill:         { 'cyan': 'yellow', easing: 'cubic.in' },
+ const line = document.querySelector('.line');
+    let docHeight = document.documentElement.scrollHeight - window.innerHeight;
 
-  duration:     2000,
-  repeat:       2,
-})
+    let targetPercent = 0;
+    let currentPercent = 0;
+
+    // recalc when resizing
+    window.addEventListener('resize', () => {
+      docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    });
+
+    // smooth animation loop
+    function animate() {
+      currentPercent += (targetPercent - currentPercent) * 0.1; // easing
+      line.style.clipPath = `inset(0 0 ${100 - currentPercent * 100}% 0)`;
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.scrollY;
+      targetPercent = scrollTop / docHeight;
+    });
+
+    animate(); // start loop

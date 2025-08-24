@@ -65,7 +65,39 @@
         z-index: -1;
     }
 
+    /* The glowing line */
+    .line {
+      position: fixed;
+      top: 70px;
+      left: 54%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 300vh;
+      background: #ffed00;
+      clip-path: inset(0 0 100% 0);
+      z-index: -100;
 
+      /* initial glow */
+      box-shadow: 0 0 15px #ffed00,
+                  0 0 30px #ffed00,
+                  0 0 60px #ffed00;
+      
+      /* pulsing glow animation */
+      animation: pulse 2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from {
+        box-shadow: 0 0 15px #ffed00,
+                    0 0 30px #ffed00,
+                    0 0 60px #ffed00;
+      }
+      to {
+        box-shadow: 0 0 25px #ffed00,
+                    0 0 50px #ffed00,
+                    0 0 100px #ffed00;
+      }
+    }
   </style>
 </head>
 
@@ -100,10 +132,11 @@
     
     <!-- About -->
     <section class="mb-24 px-4 md:px-12 lg:px-24" id="about" data-aos="fade-up">
-      <h1 class="headline text-center text-[#ffed00] text-4xl font-bold md:pl-36 pl-0 uppercase mb-8">About</h1>
+      <h1 class="headline text-center text-[#ffed00] text-4xl font-bold md:pl-24 pl-0 uppercase mb-8">About</h1>
+      <div class="line md:flex hidden"></div>
       <div class="flex flex-col lg:flex-row items-center gap-12">
         <div class="about font-normal text-center lg:text-left max-w-xl" data-aos="fade-up">
-          <p class="text-lg md:text-xl leading-relaxed md:pl-8 pl-0 space-y-6">
+          <p class="text-lg md:text-xl black leading-relaxed md:pl-8 pl-0 space-y-6">
             <span>I'm a <span class="text-[#ffed00]">frontend developer</span> with a focus on building
               <span class="text-[#ffed00]">responsive and user-friendly</span> websites using
               <span class="text-[#ffed00]">HTML, CSS, JavaScript, Tailwind CSS, and React.js</span>.</span>
@@ -113,14 +146,14 @@
               <span class="text-[#ffed00]">turning ideas into well-built digital experiences</span>.</span>
           </p>
         </div>
-        <div class="image-section border-left w-full max-w-md">
+        <div class="image-section w-full max-w-md">
           <img class="w-full h-auto" src="logos/file_0000000010f8620aa60d0a29c4fa0915.png" alt="About Me Image" data-aos="fade-down">
         </div>
       </div>
     </section>
 
     <!-- Services -->
-    <section id="service" class="mb-24" data-aos="fade-up">
+    <section id="service" class="mb-24 black" data-aos="fade-up">
       <div class="service">
         <h1 class="headline text-center text-[#ffed00] text-4xl font-bold uppercase mb-4 md:pl-24 pl-0">Best Services</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:pl-24 pl-0 text-[#ffed00]">
@@ -279,9 +312,6 @@
       </div>
     </section>
 </div>
-
-<!--Granim JS-->
-<script src="https://cdn.jsdelivr.net/npm/granim@2.0.0/dist/granim.min.js"></script>
 
 
 <!-- AOS -->
