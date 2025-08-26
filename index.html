@@ -32,7 +32,7 @@
         font-family: 'Sora', sans-serif; 
         overflow-x: hidden; /* prevent any accidental sideways scroll */
         width: 100%;
-        padding: 0%;
+        padding: 0px;
         margin: 0%;
     }
     .margin-bottom {
@@ -98,26 +98,52 @@
                     0 0 100px #ffed00;
       }
     }
+
+      /* Neon glowing line */
+   .neon-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    width: 0; /* will animate to full width */
+    background: #ffed00;
+    box-shadow: 0 0 15px #ffed00, 0 0 30px #ffed00, 0 0 60px #ffed00;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 0; /* behind the boxes */
+  }
+
+    /* Glowing box effect */
+    .glow {
+      box-shadow: 0 0 20px #ffed00, 0 0 40px #ffed00 !important;
+      transition: box-shadow 0.4s ease;
+    }
+
+    .service-box.active {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ffed00;
+    }
   </style>
 </head>
 
-<body class="text-white">
-  <div class="nav-bar hidden md:fixed p-8 black z-50 top-0 left-0 right-0 md:flex justify-between text-xl">
-    <p class="font-bold text-[#ffed00] text-4xl">3</p>
+<body class="text-white pr-0">
+ <!-- Navbar -->
+  <div class="nav-bar hidden md:flex fixed top-0 left-0 right-0 z-50 p-6 bg-black justify-between text-lg">
+    <p class="font-bold text-[#ffed00] text-3xl">3</p>
     <nav>
-      <div class="px-5">
-        <a class="padding text-[#ffed00] hover:text-white transition-all ease" href="#home">Home</a>
-        <a class="padding text-[#ffed00] hover:text-white transition-all ease" href="#about">About Me</a>
-        <a class="padding text-[#ffed00] hover:text-white transition-all ease" href="#service">Service</a>
-        <a class="padding text-[#ffed00] hover:text-white transition-all ease" href="#portfolio">Portfolio</a>
-        <a class="padding text-[#ffed00] hover:text-white transition-all ease" href="#contact">Contact</a>
+      <div class="flex gap-6">
+        <a class="text-[#ffed00] hover:text-white transition" href="#home">Home</a>
+        <a class="text-[#ffed00] hover:text-white transition" href="#about">About Me</a>
+        <a class="text-[#ffed00] hover:text-white transition" href="#service">Service</a>
+        <a class="text-[#ffed00] hover:text-white transition" href="#portfolio">Portfolio</a>
+        <a class="text-[#ffed00] hover:text-white transition" href="#contact">Contact</a>
       </div>
     </nav>
   </div>
    
 
 <div id="home" class="container left-0 right-0 relative">
-    <div class="hero-section margin-bottom flex flex-col lg:flex-row items-center md:justify-between justify-center px-6 md:px-10 lg:px-20 py-16 text-center lg:text-left gap-6" data-aos="fade-up">
+    <div class="hero-section w-full relative margin-bottom flex flex-col lg:flex-row items-center md:justify-between justify-center px-6 md:px-10 lg:px-20 py-16 text-center lg:text-left gap-6" data-aos="fade-up">
      <div id="particles-js"></div>
       <div class="max-w-4xl mt-24 mb-24">
         <h1 class="headline text text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
@@ -153,64 +179,44 @@
     </section>
 
     <!-- Services -->
-    <section id="service" class="mb-24 black" data-aos="fade-up">
-      <div class="service">
-        <h1 class="headline text-center text-[#ffed00] text-4xl font-bold uppercase mb-4 md:pl-24 pl-0">Best Services</h1>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:pl-24 pl-0 text-[#ffed00]">
-          <div class="flex flex-col items-center text-center p-4 border rounded-lg shadow-md hover:shadow-[0_0_30px_#ffed00] transition-all ease-in-out duration-200" data-aos="fade-up">
-            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-              <rect x="4" y="10" width="40" height="30" rx="3" stroke="#ffed00" stroke-width="2" />
-              <rect x="48" y="20" width="12" height="20" rx="2" stroke="#ffed00" stroke-width="2" />
-              <line x1="8" y1="18" x2="40" y2="18" stroke="#ffed00" stroke-width="1.5" />
-              <line x1="8" y1="24" x2="28" y2="24" stroke="#ffed00" stroke-width="1.5" />
-              <line x1="8" y1="30" x2="34" y2="30" stroke="#ffed00" stroke-width="1.5" />
-            </svg>
-            <h3 class="mt-4 text-lg font-semibold">Landing Page Development</h3>
-            <p class="text-sm text-white mt-2">Responsive, animated, and conversion-optimized landing pages for startups and businesses.</p>
-          </div>
+   <section id="service" class="mb-24 px-4 black md:px-12 lg:px-24" data-aos="fade-up">
+    <div class="service relative">
+      <h1 class="headline text-center md:pl-28 pl-0 text-[#ffed00] text-4xl font-bold uppercase mb-12">Services</h1>
 
-          <div class="flex flex-col items-center text-center p-4 border rounded-lg shadow-md hover:shadow-[0_0_30px_#ffed00] transition-all ease-in-out duration-200" data-aos="fade-up">
-            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-              <circle cx="32" cy="32" r="20" stroke="#ffed00" stroke-width="2" />
-              <line x1="32" y1="32" x2="46" y2="22" stroke="#ffed00" stroke-width="2" />
-              <path d="M24 48L26 40" stroke="#ffed00" stroke-width="2" />
-              <path d="M40 48L38 40" stroke="#ffed00" stroke-width="2" />
-              <circle cx="32" cy="32" r="3" fill="#ffed00" />
-            </svg>
-            <h3 class="mt-4 text-lg font-semibold">Speed Optimization</h3>
-            <p class="text-sm text-white mt-2">Boost your site’s performance and load times using Tailwind and clean HTML best practices.</p>
-          </div>
+      <!-- Neon Line -->
+      <div class="neon-line" id="neonLine"></div>
 
-          <div class="flex flex-col items-center text-center p-4 border rounded-lg shadow-md hover:shadow-[0_0_30px_#ffed00] transition-all" data-aos="fade-up">
-            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-              <rect x="10" y="10" width="44" height="28" rx="2" stroke="#ffed00" stroke-width="2" />
-              <rect x="14" y="36" width="36" height="18" rx="2" stroke="#ffed00" stroke-width="2" />
-              <line x1="16" y1="16" x2="48" y2="16" stroke="#ffed00" stroke-width="1.5" />
-              <line x1="16" y1="22" x2="38" y2="22" stroke="#ffed00" stroke-width="1.5" />
-            </svg>
-            <h3 class="mt-4 text-lg font-semibold">Web Templates</h3>
-            <p class="text-sm text-white mt-2">Sell or offer custom HTML & Tailwind CSS templates for fast site creation.</p>
-          </div>
-
-          <div class="flex flex-col items-center text-center p-4 border rounded-lg shadow-md hover:shadow-[0_0_30px_#ffed00] transition-all" data-aos="fade-up">
-            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-              <rect x="8" y="12" width="48" height="36" rx="2" stroke="#ffed00" stroke-width="2" />
-              <circle cx="20" cy="24" r="4" stroke="black" stroke-width="2" />
-              <line x1="30" y1="20" x2="48" y2="20" stroke="#ffed00" stroke-width="1.5" />
-              <line x1="30" y1="26" x2="48" y2="26" stroke="#ffed00" stroke-width="1.5" />
-              <line x1="16" y1="36" x2="48" y2="36" stroke="#ffed00" stroke-width="1.5" />
-            </svg>
-            <h3 class="mt-4 text-lg font-semibold">Portfolio Websites</h3>
-            <p class="text-sm text-white mt-2">Clean, modern personal websites for creatives, developers, and freelancers.</p>
-          </div>
+      <!-- Service Boxes -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:pl-24 pl-0 gap-6 relative z-[1]" id="servicesGrid">
+        
+        <div class="service-box flex flex-col items-center text-center bg-black p-6 border border-[#ffed00]/50 rounded-lg transition-all duration-300">
+          <h3 class="mt-4 text-lg font-semibold text-[#ffed00]">Landing Page Development</h3>
+          <p class="text-sm text-gray-300 mt-2">Responsive, animated, and conversion-optimized landing pages.</p>
         </div>
+
+        <div class="service-box flex flex-col items-center bg-black text-center p-6 border border-[#ffed00]/50 rounded-lg transition-all duration-300">
+          <h3 class="mt-4 text-lg font-semibold text-[#ffed00]">Speed Optimization</h3>
+          <p class="text-sm text-gray-300 mt-2">Boost your site’s performance and load times.</p>
+        </div>
+
+        <div class="service-box flex flex-col items-center bg-black text-center p-6 border border-[#ffed00]/50 rounded-lg transition-all duration-300">
+          <h3 class="mt-4 text-lg font-semibold text-[#ffed00]">Web Templates</h3>
+          <p class="text-sm text-gray-300 mt-2">Custom HTML & Tailwind CSS templates for fast creation.</p>
+        </div>
+
+        <div class="service-box flex flex-col items-center bg-black text-center p-6 border border-[#ffed00]/50 rounded-lg transition-all duration-300">
+          <h3 class="mt-4 text-lg font-semibold text-[#ffed00]">Portfolio Websites</h3>
+          <p class="text-sm text-gray-300 mt-2">Modern personal websites for developers & freelancers.</p>
+        </div>
+
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- Portfolio -->
     <section id="portfolio" class="black" data-aos="fade-up">
-      <h1 class="headline text-center text-[#ffed00] text-4xl md:pl-24 pl-0 font-bold uppercase mb-4">Portfolio</h1>
-      <div class="grid md:pl-8 pl-0  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up">
+      <h1 class="headline text-center text-[#ffed00] text-4xl md:pl-28 pl-0 font-bold uppercase mb-4">Portfolio</h1>
+      <div class="grid md:pl-20 pl-0  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up">
         <div class="relative group transition-all duration-300 hover:scale-[1.02]">
           <div class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-300 z-0 bg-[#ffed00]/10"></div>
           <div class="bg-zinc-900 text-zinc-100 rounded-2xl p-4 shadow-md hover:shadow-[0_0_30px_#ffed00] z-10 relative">
@@ -286,7 +292,7 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="bg-black md:pl-24 pl-0  text-zinc-100 py-16 px-4" data-aos="fade-up">
+    <section id="contact" class="bg-black md:pl-28 pl-0 sm:pl-0  text-zinc-100 py-16 px-4" data-aos="fade-up">
       <div class="max-w-xl mx-auto text-center">
         <h2 class="headline text-center text-[#ffed00] text-4xl font-bold uppercase mb-4">Contact Me</h2>
         <p class="text-zinc-400 mb-8 text-sm">Reach out or connect with me on any of the platforms below.</p>

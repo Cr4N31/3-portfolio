@@ -40,27 +40,67 @@ particlesJS("particles-js", {
   },
 });
 
- const line = document.querySelector('.line');
-    let docHeight = document.documentElement.scrollHeight - window.innerHeight;
+ // ===============================
+// VERTICAL LINE (full page scroll)
+// ===============================
+const verticalLine = document.querySelector('.line');
+let docHeight = document.documentElement.scrollHeight - window.innerHeight;
 
-    let targetPercent = 0;
-    let currentPercent = 0;
+let targetPercent = 0;
+let currentPercent = 0;
 
-    // recalc when resizing
-    window.addEventListener('resize', () => {
-      docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    });
+// recalc when resizing
+window.addEventListener('resize', () => {
+  docHeight = document.documentElement.scrollHeight - window.innerHeight;
+});
 
-    // smooth animation loop
-    function animate() {
-      currentPercent += (targetPercent - currentPercent) * 0.1; // easing
-      line.style.clipPath = `inset(0 0 ${100 - currentPercent * 100}% 0)`;
-      requestAnimationFrame(animate);
+// smooth animation loop
+function animateVertical() {
+  currentPercent += (targetPercent - currentPercent) * 0.1; // easing
+  verticalLine.style.clipPath = `inset(0 0 ${100 - currentPercent * 100}% 0)`;
+  requestAnimationFrame(animateVertical);
+}
+
+window.addEventListener('scroll', () => {
+  let scrollTop = window.scrollY;
+  targetPercent = scrollTop / docHeight;
+});
+
+animateVertical(); // start loop
+
+
+// ======================================
+// HORIZONTAL NEON LINE (services section)
+// ======================================
+ const neonLine = document.getElementById("neonLine");
+    const serviceBoxes = document.querySelectorAll("#servicesGrid .service-box");
+    const grid = document.getElementById("servicesGrid");
+    const section = document.getElementById("service");
+
+    let lastScrollY = window.scrollY;
+
+    function updateLine() {
+      const sectionRect = section.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      const progress = Math.min(
+        Math.max((viewportHeight - sectionRect.top) / (sectionRect.height + viewportHeight),0),1
+      );
+
+      const lineWidth = progress * grid.offsetWidth;
+      neonLine.style.width = `${lineWidth}px`;
+
+      const boxWidth = grid.offsetWidth / serviceBoxes.length;
+      const activeCount = Math.ceil(lineWidth / boxWidth);
+
+      serviceBoxes.forEach((box, index) => {
+        if (index < activeCount) {
+          box.classList.add("active");
+        } else {
+          box.classList.remove("active");
+        }
+      });
     }
 
-    window.addEventListener('scroll', () => {
-      let scrollTop = window.scrollY;
-      targetPercent = scrollTop / docHeight;
-    });
-
-    animate(); // start loop
+window.addEventListener("scroll", updateLine);
+window.addEventListener("resize", updateLine);
