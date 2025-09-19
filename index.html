@@ -123,6 +123,10 @@
       transform: scale(1.05);
       box-shadow: 0 0 20px #ffed00;
     }
+
+    .hover-glow:hover {
+      box-shadow: 0 0 40px #ffed00;
+    }
   </style>
 </head>
 
@@ -180,7 +184,7 @@
 
     <!-- Services -->
    <section id="service" class="mb-24 px-4 black md:px-12 lg:px-24" data-aos="fade-up">
-    <div class="service relative">
+    <div class="service relative pt-12">
       <h1 class="headline text-center md:pl-28 pl-0 text-[#ffed00] text-4xl font-bold uppercase mb-12">Services</h1>
 
       <!-- Neon Line -->
@@ -189,22 +193,22 @@
       <!-- Service Boxes -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:pl-24 pl-0 gap-6 relative z-[1]" id="servicesGrid">
         
-        <div class="service-box flex flex-col items-center text-center bg-black p-6 border border-[#ffed00]/50 rounded-lg transition-all duration-300">
+        <div class="service-box hover-glow flex flex-col items-center text-center bg-black p-6 border border-[#ffed00]/50 rounded-lg transition-all duration-300">
           <h3 class="mt-4 text-lg font-semibold text-[#ffed00]">Landing Page Development</h3>
           <p class="text-sm text-gray-300 mt-2">Responsive, animated, and conversion-optimized landing pages.</p>
         </div>
 
-        <div class="service-box flex flex-col items-center bg-black text-center p-6 border border-[#ffed00]/50 rounded-lg transition-all duration-300">
+        <div class="service-box hover-glow flex flex-col items-center bg-black text-center p-6 border border-[#ffed00]/50 rounded-lg transition-all duration-300">
           <h3 class="mt-4 text-lg font-semibold text-[#ffed00]">Speed Optimization</h3>
           <p class="text-sm text-gray-300 mt-2">Boost your site’s performance and load times.</p>
         </div>
 
-        <div class="service-box flex flex-col items-center bg-black text-center p-6 border border-[#ffed00]/50 rounded-lg transition-all duration-300">
+        <div class="service-box hover-glow flex flex-col items-center bg-black text-center p-6 border border-[#ffed00]/50 rounded-lg transition-all duration-300">
           <h3 class="mt-4 text-lg font-semibold text-[#ffed00]">Web Templates</h3>
           <p class="text-sm text-gray-300 mt-2">Custom HTML & Tailwind CSS templates for fast creation.</p>
         </div>
 
-        <div class="service-box flex flex-col items-center bg-black text-center p-6 border border-[#ffed00]/50 rounded-lg transition-all duration-300">
+        <div class="service-box hover-glow flex flex-col items-center bg-black text-center p-6 border border-[#ffed00]/50 rounded-lg transition-all duration-300">
           <h3 class="mt-4 text-lg font-semibold text-[#ffed00]">Portfolio Websites</h3>
           <p class="text-sm text-gray-300 mt-2">Modern personal websites for developers & freelancers.</p>
         </div>
@@ -214,79 +218,102 @@
   </section>
 
     <!-- Portfolio -->
-    <section id="portfolio" class="black" data-aos="fade-up">
+    <section id="portfolio" class="black pt-12" data-aos="fade-up">
       <h1 class="headline text-center text-[#ffed00] text-4xl md:pl-28 pl-0 font-bold uppercase mb-4">Portfolio</h1>
-      <div class="grid md:pl-20 pl-0  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up">
-        <div class="relative group transition-all duration-300 hover:scale-[1.02]">
-          <div class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-300 z-0 bg-[#ffed00]/10"></div>
-          <div class="bg-zinc-900 text-zinc-100 rounded-2xl p-4 shadow-md hover:shadow-[0_0_30px_#ffed00] z-10 relative">
-            <img src="img/balls.png" alt="$BALLS Thumbnail" class="w-full h-40 object-cover rounded-xl mb-4">
-            <h3 class="text-lg font-semibold">$BALLS Web Platform</h3>
-            <p class="text-sm text-zinc-400 mt-1">A marketing platform for the $BALLS token community with Web3 integrations.</p>
-            <div class="flex flex-wrap gap-2 mt-3">
-              <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">React.js</span>
-              <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Tailwind CSS</span>
-              <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Web3</span>
+      <div class="portfolio max-w-7xl mx-auto">
+        <h2 class="text-left text-[#ffed00] md:text-left text-center text-3xl md:pl-28 pl-0 font-bold uppercase mb-4" data-aos="fade-up">Web Projects</h2>
+        <div class="grid md:pl-20 pl-0  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up">
+          <div class="relative group transition-all duration-300 hover:scale-[1.02]">
+            <div class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-300 z-0 bg-[#ffed00]/10"></div>
+            <div class="bg-zinc-900 text-zinc-100 rounded-2xl p-4 shadow-md hover:shadow-[0_0_30px_#ffed00] z-10 relative">
+              <img src="img/balls.png" alt="$BALLS Thumbnail" class="w-full h-40 object-cover rounded-xl mb-4">
+              <h3 class="text-lg font-semibold">$BALLS Web Platform</h3>
+              <p class="text-sm text-zinc-400 mt-1">A marketing platform for the $BALLS token community with Web3 integrations.</p>
+              <div class="flex flex-wrap gap-2 mt-3">
+                <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">HTML</span>
+                <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Tailwind CSS</span>
+                <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Web3</span>
+              </div>
+              <div class="mt-4 flex justify-between items-center text-sm">
+                <a href="https://www.myballs.me" target="_blank" class="text-[#ffed00] hover:underline">Live Demo</a>
+                <span class="text-zinc-500 italic">Private Repo</span>
+              </div>
             </div>
-            <div class="mt-4 flex justify-between items-center text-sm">
-              <a href="https://www.myballs.me" target="_blank" class="text-[#ffed00] hover:underline">Live Demo</a>
-              <span class="text-zinc-500 italic">Private Repo</span>
+          </div>
+
+          <div class="relative group transition-all duration-300 hover:scale-[1.02]" data-aos="fade-up">
+            <div class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-300 z-0 bg-[#ffed00]/10"></div>
+            <div class="bg-zinc-900 text-zinc-100 rounded-2xl p-4 shadow-md hover:shadow-[0_0_30px_#ffed00] z-10 relative">
+              <img src="img/prisltd.png" alt="Demmendem Thumbnail" class="w-full h-40 object-cover rounded-xl mb-4">
+              <h3 class="text-lg font-semibold">PRIS LTD</h3>
+              <p class="text-sm text-zinc-400 mt-1">Functional Website built for a real estate/construction firm</p>
+              <div class="flex flex-wrap gap-2 mt-3">
+                <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Tailwind</span>
+                <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Live Map API</span>
+                <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">UI Design</span>
+              </div>
+              <div class="mt-4 flex justify-between items-center text-sm">
+                <a href="https://prisltd.netlify.app/" target="_blank" class="text-[#ffed00] hover:underline">Live Demo</a>
+                <span class="text-zinc-500 italic">Private Repo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative group transition-all duration-300 hover:scale-[1.02]" data-aos="fade-up">
+            <div class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-300 z-0 bg-[#ffed00]/10"></div>
+            <div class="bg-zinc-900 text-zinc-100 rounded-2xl p-4 shadow-md hover:shadow-[0_0_30px_#ffed00] z-10 relative">
+              <img src="img/Crofam.png" alt="Crofam Thumbnail" class="w-full h-40 object-cover rounded-xl mb-4">
+              <h3 class="text-lg font-semibold">Crofam Token Landing</h3>
+              <p class="text-sm text-zinc-400 mt-1">A fun yet sleek meme token page with smooth scroll and blockchain vibe.</p>
+              <div class="flex flex-wrap gap-2 mt-3">
+                <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">HTML</span>
+                <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Tailwind</span>
+                <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Cronos</span>
+              </div>
+              <div class="mt-4 flex justify-between items-center text-sm">
+                <a href="https://crofamtoken.fun" target="_blank" class="text-[#ffed00] hover:underline">Live Demo</a>
+                <span class="text-zinc-500 italic">Private Repo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative group transition-all duration-300 hover:scale-[1.02]" data-aos="fade-up">
+            <div class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-300 z-0 bg-[#ffed00]/10"></div>
+            <div class="bg-zinc-900 text-zinc-100 rounded-2xl p-4 shadow-md hover:shadow-[0_0_30px_#ffed00] z-10 relative">
+              <img src="img/Eric.png" alt="$ERIC Thumbnail" class="w-full h-40 object-cover rounded-xl mb-4">
+              <h3 class="text-lg font-semibold">$ERIC Token Promo</h3>
+              <p class="text-sm text-zinc-400 mt-1">Bold animated crypto promo site built for traction and brand identity.</p>
+              <div class="flex flex-wrap gap-2 mt-3">
+                <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Tailwind</span>
+                <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">JavaScript</span>
+                <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Animation</span>
+              </div>
+              <div class="mt-4 flex justify-between items-center text-sm">
+                <a href="https://erictoken.app" target="_blank" class="text-[#ffed00] hover:underline">Live Demo</a>
+                <span class="text-zinc-500 italic">Private Repo</span>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      
 
-        <div class="relative group transition-all duration-300 hover:scale-[1.02]" data-aos="fade-up">
-          <div class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-300 z-0 bg-[#ffed00]/10"></div>
-          <div class="bg-zinc-900 text-zinc-100 rounded-2xl p-4 shadow-md hover:shadow-[0_0_30px_#ffed00] z-10 relative">
-            <img src="https://demmendem.com/logo.png" alt="Demmendem Thumbnail" class="w-full h-40 object-cover rounded-xl mb-4">
-            <h3 class="text-lg font-semibold">Demmendem E-commerce</h3>
-            <p class="text-sm text-zinc-400 mt-1">Shopify-based store with custom layout, styling, and improved user flow.</p>
-            <div class="flex flex-wrap gap-2 mt-3">
-              <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Shopify</span>
-              <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Liquid</span>
-              <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">UI Design</span>
-            </div>
-            <div class="mt-4 flex justify-between items-center text-sm">
-              <a href="https://demmendem.com" target="_blank" class="text-[#ffed00] hover:underline">Live Demo</a>
-              <span class="text-zinc-500 italic">Private Repo</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="relative group transition-all duration-300 hover:scale-[1.02]" data-aos="fade-up">
-          <div class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-300 z-0 bg-[#ffed00]/10"></div>
-          <div class="bg-zinc-900 text-zinc-100 rounded-2xl p-4 shadow-md hover:shadow-[0_0_30px_#ffed00] z-10 relative">
-            <img src="img/Crofam.png" alt="Crofam Thumbnail" class="w-full h-40 object-cover rounded-xl mb-4">
-            <h3 class="text-lg font-semibold">Crofam Token Landing</h3>
-            <p class="text-sm text-zinc-400 mt-1">A fun yet sleek meme token page with smooth scroll and blockchain vibe.</p>
-            <div class="flex flex-wrap gap-2 mt-3">
-              <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">HTML</span>
-              <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Tailwind</span>
-              <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Cronos</span>
-            </div>
-            <div class="mt-4 flex justify-between items-center text-sm">
-              <a href="https://crofamtoken.fun" target="_blank" class="text-[#ffed00] hover:underline">Live Demo</a>
-              <span class="text-zinc-500 italic">Private Repo</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="relative group transition-all duration-300 hover:scale-[1.02]" data-aos="fade-up">
-          <div class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-300 z-0 bg-[#ffed00]/10"></div>
-          <div class="bg-zinc-900 text-zinc-100 rounded-2xl p-4 shadow-md hover:shadow-[0_0_30px_#ffed00] z-10 relative">
-            <img src="img/Eric.png" alt="$ERIC Thumbnail" class="w-full h-40 object-cover rounded-xl mb-4">
-            <h3 class="text-lg font-semibold">$ERIC Token Promo</h3>
-            <p class="text-sm text-zinc-400 mt-1">Bold animated crypto promo site built for traction and brand identity.</p>
-            <div class="flex flex-wrap gap-2 mt-3">
-              <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Tailwind</span>
-              <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">JavaScript</span>
-              <span class="text-xs px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-full">Animation</span>
-            </div>
-            <div class="mt-4 flex justify-between items-center text-sm">
-              <a href="https://erictoken.app" target="_blank" class="text-[#ffed00] hover:underline">Live Demo</a>
-              <span class="text-zinc-500 italic">Private Repo</span>
-            </div>
-          </div>
+      <div class="job-div mx-auto max-w-6xl mt-16 mb-24 px-4" data-aos="fade-up">
+        <h1 class="text-left text-[#ffed00] md:text-left text-center text-3xl md:pl-28 pl-0 font-bold uppercase mb-4">Job Positions Held</h1>
+        <div>
+           <div>
+             <h1 class="text-[#ffed00] text-2xl font-bold uppercase mb-2">Felamok IT Services</h1>
+             <h2 class="text-black bg-[#ffed00] w-fit px-2 font-bold mb-4">4th July 2025 - 4th October 2025</h2>
+             <p>
+              Worked as a Junior IT staff, My main task were to shadow the senior staffs in their daily. 
+              I also worked in setting up their data privacy and compliance department, I set up their bulk sms and email disributor,
+              collected data on chartered accountants, lawyers, bankers and even institutions registered under different financial institues such as ANAN, CBN, NIBBS, ITF etc.
+              these datas included company names, company email addresses, phone numbers, company addresses. I also worked on the email templates making sure the write ups weren't generic
+              and fully captured the true aim of the company.
+              I was also assigned the task of creating the website. It contained a simple online tool called <span class="text-[#ffed00]"><b>The Data Breach Cost Calculator</b></span>,
+              A tool which helps companies estimate the potential financial impact of a data breach by first selecting their industry(banking, accounting, IT, etc) based on various factors such as the size of the breach, basic data volume (eg number of customers & type of data processed), and location.
+             </p>
+           </div>
         </div>
       </div>
     </section>

@@ -104,3 +104,30 @@ animateVertical(); // start loop
 
 window.addEventListener("scroll", updateLine);
 window.addEventListener("resize", updateLine);
+
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  const content = document.getElementById("mainContent");
+
+  // small delay so users see the loader
+  setTimeout(() => {
+    loader.style.opacity = "0";
+    loader.style.transition = "opacity 0.6s ease";
+
+    setTimeout(() => {
+      loader.style.display = "none"; // fully remove
+      content.classList.remove("hidden"); // show page
+    }, 600); // match transition time
+  }, 500); // adjust delay to your liking
+
+    // Init AOS (once for better perf)
+  AOS.init({
+    once: false,
+    duration: 700,
+    easing: 'ease-out'
+  });
+});
+
+
+
