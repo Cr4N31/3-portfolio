@@ -72,7 +72,6 @@ animateVertical(); // start loop
 // ======================================
 // HORIZONTAL NEON LINE (services section)
 // ======================================
- const neonLine = document.getElementById("neonLine");
     const serviceBoxes = document.querySelectorAll("#servicesGrid .service-box");
     const grid = document.getElementById("servicesGrid");
     const section = document.getElementById("service");
@@ -84,7 +83,7 @@ animateVertical(); // start loop
       const viewportHeight = window.innerHeight;
 
       const progress = Math.min(
-        Math.max((viewportHeight - sectionRect.top) / (sectionRect.height + viewportHeight),0),1
+        Math.max((viewportHeight - sectionRect.top) / viewportHeight, 0),1
       );
 
       const lineWidth = progress * grid.offsetWidth;
