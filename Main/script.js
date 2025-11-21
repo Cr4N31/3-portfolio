@@ -132,7 +132,7 @@ window.addEventListener("load", () => {
 const projects = {
     balls: {
       title: "$BALLS Web Platform",
-      imageUrl: "/3-portfolio/img/balls.png",
+      imageUrl: "/img/balls.png",
       description: `A marketing platform for the $BALLS token community with Web3 integrations.
                     The $BALLS community is on a new path. Originally a Cronos meme token, $BALLS is now focused on bringing the catchy and funny $BALLS meme to new chains where HYPE and excitement exist. 
                     We're always hunting for exciting new ways to win in the crypto space. Our goal is simple - FOLLOW THE HYPE, have fun and make money together as a community. 
@@ -143,7 +143,7 @@ const projects = {
     },
     pris: {
       title: "PRIS LTD",
-      imageUrl: "/3-portfolio/img/prisltd.png",
+      imageUrl: "/img/prisltd.png",
       description: `A static website built for a real estate/construction firm, with responsive maps and UI design. 
                     The technoloies involved were HTML as the markup language, Tailwindcss for styling and 
                     Javascript for responsiveness and the fetching of the api from google maps.
@@ -159,19 +159,24 @@ const projects = {
       title: "Crofam Token Landing",
       imageUrl: "/3-portfolio/img/Crofam.png",
       description: "A fun token landing page with crypto branding and smooth UI/UX experience.",
+      client: "@CrofamZkevin(X)", 
       linkUrl: "",
     },
     boots: {
       title: "BulletinBoots Token",
-      imageUrl: "/3-portfolio/img/bulletinb.png",
+      imageUrl: "/img/bulletinb.png",
       description: "A bold, energetic meme token site powered by Cronos, built with animations and UI polish.",
       linkUrl: "https://www.bulletinboots.com/",
     },
     eric: {
       title: "$ERIC Token Promo",
-      imageUrl: "/3-portfolio/img/Eric.png",
-      description: "An eye-catching animated promo page crafted to boost traction for the $ERIC token.",
-      linkUrl: "",
+      imageUrl: "/img/Eric.png",
+      description: `An eye-catching animated promo page crafted to boost traction for the $ERIC token.
+                   A community-driven project inspired by transparency, innovation, and long-term value.
+                   Focuses on transparency first - Open communication & regular updates, Innovative Tech, Community Governance and long term value
+                   `,
+      client:"@MCOWOLF101(X)",
+      linkUrl: "https://erictoken.app/",
     },
   };
 
