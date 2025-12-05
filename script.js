@@ -12,7 +12,7 @@ const twEl = document.getElementById('typewriter');
 if (twEl && window.Typewriter) {
   const tw = new Typewriter(twEl, { loop: true, delay: 35, deleteSpeed: 20 });
   tw
-    .typeString("Frontend Develope")
+    .typeString("Frontend Developer")
     .pauseFor(1000)
     .deleteAll()
     .typeString("UI Engineer")
