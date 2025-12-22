@@ -1,0 +1,124 @@
+.padding {
+      padding-right: 15px;
+    }
+
+    .hero-button {
+      background-color: transparent;
+      border: solid rgb(255, 255, 255) 2px;
+    }
+
+    body {
+      background-color: rgb(6, 6, 6);
+      font-family: 'Sora', sans-serif;
+      overflow-x: hidden;
+      /* prevent any accidental sideways scroll */
+      width: 100%;
+      padding: 0px;
+      margin: 0%;
+    }
+
+    .margin-bottom {
+      margin-bottom: 200px;
+      margin-top: 100px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .black {
+      background-color: rgb(6, 6, 6);
+    }
+
+    .border-left {
+      border-left: solid 2px #ffed00;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #000000;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #ffed00;
+      border-radius: 5px;
+      border: 2px solid #000000;
+    }
+
+    /* Firefox support */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #ffed00 #000000;
+    }
+
+    #particles-js {
+      position: fixed;
+      /* stays behind everything */
+      top: 0;
+      left: 0;
+      width: 100%;
+      /* fill screen */
+      height: 100vh;
+      background: #000;
+      z-index: -1;
+    }
+
+    /* The glowing line */
+    .line {
+      position: fixed;
+      top: 70px;
+      left: 54%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 300vh;
+      background: #ffed00;
+      clip-path: inset(0 0 100% 0);
+      z-index: -100;
+
+      /* initial glow */
+      box-shadow: 0 0 15px #ffed00,
+        0 0 30px #ffed00,
+        0 0 60px #ffed00;
+
+      /* pulsing glow animation */
+      animation: pulse 2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from {
+        box-shadow: 0 0 15px #ffed00,
+          0 0 30px #ffed00,
+          0 0 60px #ffed00;
+      }
+
+      to {
+        box-shadow: 0 0 25px #ffed00,
+          0 0 50px #ffed00,
+          0 0 100px #ffed00;
+      }
+    }
+
+    /* Glowing box effect */
+    .glow {
+      box-shadow: 0 0 20px #ffed00, 0 0 40px #ffed00 !important;
+      transition: box-shadow 0.4s ease;
+    }
+
+    .service-box.active {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ffed00;
+    }
+
+    .hover-glow:hover {
+      box-shadow: 0 0 40px #ffed00;
+    }
+
+     .modal-background {
+      backdrop-filter: blur(8px);
+    }
