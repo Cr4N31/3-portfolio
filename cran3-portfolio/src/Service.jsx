@@ -32,8 +32,6 @@ function Service({ stacks: propStacks }) {
         databases: [
             { name: 'MongoDB', src: mongodbIcon },
             { name: 'MySQL', src: mysqlIcon },
-            { name: 'Postgres', src: placeholderIcon },
-            { name: 'Redis', src: placeholderIcon },
         ],
         infra: [
             { name: 'Docker', src: dockerIcon },
