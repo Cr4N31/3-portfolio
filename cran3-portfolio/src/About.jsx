@@ -50,13 +50,13 @@ const verticalLineRef = useRef(null);
             <div className="about font-normal text-center lg:text-left max-w-xl">
             <p className="text-lg md:text-xl black leading-relaxed md:pl-8 pl-0 space-y-6">
                 <span>I'm a <span className="text-[#ffed00]">frontend developer</span> with a focus on building
-                <span className="text-[#ffed00]">responsive and user-friendly</span> websites using
-                <span className="text-[#ffed00]">HTML, CSS3, React.js, Next.js, TypeScript, Tailwind CSS,</span> and more.</span>
-                <span>I've worked on projects ranging from <span className="text-[#ffed00]">crypto landing pages to
+                <span className="text-[#ffed00]"> responsive and user-friendly</span> websites using
+                <span className="text-[#ffed00]"> HTML, CSS3, React.js, Next.js, TypeScript, Tailwind CSS,</span> and more.</span>
+                <span> I've worked on projects ranging from <span className="text-[#ffed00]">crypto landing pages to
                     e-commerce sites</span>, always aiming for <span className="text-[#ffed00]">smooth design and
                     performance</span>.</span>
-                <span>I'm passionate about learning new tools, improving my craft, and
-                <span className="text-[#ffed00]">turning ideas into well-built digital experiences</span>.</span>
+                <span> I'm passionate about learning new tools, improving my craft, and
+                <span className="text-[#ffed00]"> turning ideas into well-built digital experiences</span>.</span>
             </p>
             </div>
             <div
