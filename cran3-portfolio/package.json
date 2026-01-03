@@ -11,6 +11,7 @@
     "tw:watch": "npx tailwindcss -i ./src/index.css -o ./src/output.css --watch"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

@@ -1,5 +1,6 @@
 import reactIcon from './assets/icons/reactjs.svg';
 import javascriptIcon from './assets/icons/javascript.svg';
+import css3Icon from './assets/icons/css3.svg'
 import nextIcon from './assets/icons/nextjs.svg';
 import typescriptIcon from './assets/icons/typescript.svg';
 import tailwindIcon from './assets/icons/tailwindcss.svg';
@@ -13,11 +14,14 @@ import awsIcon from './assets/icons/aws.svg';
 import vercelIcon from './assets/icons/vercel.svg';
 import githubActionsIcon from './assets/icons/github-actions.svg';
 import placeholderIcon from './assets/file_0000000010f8620aa60d0a29c4fa0915.png';
+import htmlIcon from './assets/icons/html5.svg';
 
 function Service({ stacks: propStacks }) {
     const defaultStacks = {
         frontend: [
             { name: 'ReactJS', src: reactIcon },
+            { name: 'HTML5', src: htmlIcon},
+            { name: 'CSS3', src: css3Icon},
             { name: 'JavaScript', src: javascriptIcon },
             { name: 'NextJS', src: nextIcon },
             { name: 'TailwindCss', src: tailwindIcon },
@@ -32,8 +36,6 @@ function Service({ stacks: propStacks }) {
         databases: [
             { name: 'MongoDB', src: mongodbIcon },
             { name: 'MySQL', src: mysqlIcon },
-            { name: 'Postgres', src: placeholderIcon },
-            { name: 'Redis', src: placeholderIcon },
         ],
         infra: [
             { name: 'Docker', src: dockerIcon },
