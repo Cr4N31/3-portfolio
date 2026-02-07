@@ -3,7 +3,7 @@ import Crofam from './assets/img/Crofam.png';
 import dashboard from './assets/img/Dashboard.jpeg';
 import Eric from './assets/img/Eric.png';
 import Pris from './assets/img/prisltd.png';
-import smartClinic from './assets/img/smartClinic.png';
+import smartClinic from './assets/img/smartClinic.jpeg';
 function Portfolio() {
     const portfolio = [
         {
@@ -17,7 +17,7 @@ function Portfolio() {
             id: 'smartclinic',
             title: 'Smart Clinic',
             desc: 'A web application that collects the medical data and tracks weekly vitals of users. Demo site auth systrm uses random values to permit access to the dashboard.',
-            img: smartClinicS,
+            img: smartClinic,
             link: 'https://smart-clinic-rho.vercel.app/'
         },
         {
