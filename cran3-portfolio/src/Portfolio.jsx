@@ -1,8 +1,9 @@
 import Balls from './assets/img/balls.png';
 import Crofam from './assets/img/Crofam.png';
-import Bib from './assets/img/bulletinb.png';
+import dashboard from './assets/img/Dashboard.jpeg';
 import Eric from './assets/img/Eric.png';
 import Pris from './assets/img/prisltd.png';
+import smartClinic from './assets/img/smartClinic.png';
 function Portfolio() {
     const portfolio = [
         {
@@ -13,18 +14,18 @@ function Portfolio() {
             link: 'https://www.myballs.me/'
         },
         {
-            id: 'crofam',
-            title: 'Crofam Token Landing',
-            desc: 'A fun yet sleek meme token page with smooth scroll and blockchain vibe.',
-            img: Crofam,
-            link: ''
+            id: 'smartclinic',
+            title: 'Smart Clinic',
+            desc: 'A web application that collects the medical data and tracks weekly vitals of users. Demo site auth systrm uses random values to permit access to the dashboard.',
+            img: smartClinicS,
+            link: 'https://smart-clinic-rho.vercel.app/'
         },
         {
-            id: 'bib',
-            title: 'BulletinBoots Token Landing',
-            desc: 'A bold and energetic meme token site for the BulletinBoots community.',
-            img: Bib,
-            link: ''
+            id: 'Dashboard',
+            title: 'Dashboard UI',
+            desc: 'This project is a React-based dashboard application focused on building a solid authentication flow and laying the foundation for a full dashboard system.',
+            img: dashboard,
+            link: 'https://dashboard-authentication-six.vercel.app/'
         },
         {
             id: 'eric',
