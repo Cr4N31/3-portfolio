@@ -16,14 +16,14 @@ function Portfolio() {
         {
             id: 'smartclinic',
             title: 'Smart Clinic',
-            desc: 'A web application that collects the medical data and tracks weekly vitals of users. Demo site auth systrm uses random values to permit access to the dashboard.',
+            desc: 'A web application that collects the medical data and tracks weekly vitals of users. Demo site auth system uses random values to permit access to the dashboard. loginInfo is user@gmail.com and pass1234 ',
             img: smartClinic,
             link: 'https://smart-clinic-rho.vercel.app/'
         },
         {
             id: 'Dashboard',
             title: 'Dashboard UI',
-            desc: 'This project is a React-based dashboard application focused on building a solid authentication flow and laying the foundation for a full dashboard system.',
+            desc: 'This project is a React-based dashboard application focused on building a solid authentication flow and laying the foundation for a full dashboard system. loginInfo is user@gmail.com and pass1234',
             img: dashboard,
             link: 'https://dashboard-authentication-six.vercel.app/'
         },
