@@ -97,13 +97,13 @@ function Portfolio() {
                            <p>{p.desc}</p>
                            <a
                                 href={p.link ? p.link : '#'}
-                                className={p.link ? 'text-[#ffed00] hover:text-yellow-600' : 'text-gray-400 cursor-not-allowed'}
+                                className={(p.link ? 'text-[#ffed00] hover:text-yellow-600' : 'text-gray-400 cursor-not-allowed') + ' block mb-2'}
                                 >
                                 {p.link ? 'View Project' : 'Live preview unavailable'}
                             </a>
                             <button
                                 onClick={() => { setSelectedProject(p); setIsModalOpen(true); }}
-                                className="block mt-2 text-[#ffed00] hover:text-yellow-600"
+                                className="block text-[#ffed00] hover:text-yellow-600 underline"
                             >
                                 See More
                             </button>
@@ -115,10 +115,10 @@ function Portfolio() {
 
             {isModalOpen && selectedProject && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4">
-                    <div className="bg-zinc-900 bg-opacity-90 backdrop-blur-lg rounded-2xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto relative">
+                    <div className="bg-zinc-900 bg-opacity-90 backdrop-blur-lg rounded-2xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto relative border border-[#ffed00]/20 z-[101]">
                         <button
                             onClick={() => setIsModalOpen(false)}
-                            className="absolute top-4 right-4 text-[#ffed00] text-3xl hover:text-yellow-600 transition-colors"
+                            className="absolute top-4 right-4 text-[#ffed00] text-3xl hover:text-yellow-600 transition-colors z-[102]"
                         >
                             &times;
                         </button>
