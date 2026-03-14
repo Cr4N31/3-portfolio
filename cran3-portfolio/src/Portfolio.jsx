@@ -103,7 +103,7 @@ function Portfolio() {
                             </a>
                             <button
                                 onClick={() => { setSelectedProject(p); setIsModalOpen(true); }}
-                                className="block mt-2 text-[#ffed00] hover:text-yellow-600 underline"
+                                className="block mt-2 text-[#ffed00] hover:text-yellow-600"
                             >
                                 See More
                             </button>
@@ -115,7 +115,7 @@ function Portfolio() {
 
             {isModalOpen && selectedProject && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4">
-                    <div className="bg-zinc-900 bg-opacity-90 backdrop-blur-lg rounded-2xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto relative border border-[#ffed00]/20">
+                    <div className="bg-zinc-900 bg-opacity-90 backdrop-blur-lg rounded-2xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto relative">
                         <button
                             onClick={() => setIsModalOpen(false)}
                             className="absolute top-4 right-4 text-[#ffed00] text-3xl hover:text-yellow-600 transition-colors"
