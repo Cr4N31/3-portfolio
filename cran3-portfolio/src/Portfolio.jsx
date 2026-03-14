@@ -114,7 +114,7 @@ function Portfolio() {
             </div>
 
             {isModalOpen && selectedProject && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4">
                     <div className="bg-zinc-900 bg-opacity-90 backdrop-blur-lg rounded-2xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto relative border border-[#ffed00]/20">
                         <button
                             onClick={() => setIsModalOpen(false)}
