@@ -52,103 +52,78 @@ function Service({ stacks: propStacks }) {
     };
 
     return (
-        <section id="services" className="px-4 md:px-12 lg:px-12 py-16" data-aos="fade-up">
-            <div className="">
-                <h2 className="text-center text-[#ffed00] font-sora text-4xl font-bold uppercase mb-8">SERVICES</h2>
-                <div className='flex text-center flex-col md:flex-row gap-6 justify-center'>
-
-                <div className="relative p-12" data-aos="fade-up">
-                <div className="absolute inset-0 border border-[#ffed00] rounded-lg animate-border-glow pointer-events-none"></div>
-                    <div className="relative z-10">
-                        <h3 className="font-semibold font-sora mb-2 text-[#ffed00]">
-                        Landing Page Development
-                        </h3>
-                        <p>Responsive, animated and conversion-optimized landing pages</p>
-                    </div>
-                </div>
-
-                <div className="relative p-12" data-aos="fade-up">
-                <div className="absolute inset-0 border border-[#ffed00] rounded-lg animate-border-glow pointer-events-none"></div>
-                    <div className="relative z-10">
-                        <h3 className="font-semibold mb-2 text-[#ffed00]">
-                        Speed Optimization
-                        </h3>
-                        <p>Boost your site's performance and load times.</p>
-                    </div>
-                </div>
-
-                <div className="relative p-12" data-aos="fade-up">
-                <div className="absolute inset-0 border border-[#ffed00] rounded-lg animate-border-glow pointer-events-none"></div>
-                    <div className="relative z-10">
-                        <h3 className="font-semibold mb-2 text-[#ffed00]">
-                        Web Templates
-                        </h3>
-                        <p>Custom HTML & Tailwind CSS templates for fast creation.</p>
-                    </div>
-                </div>
-
-                <div className="relative p-12" data-aos="fade-up">
-                <div className="absolute inset-0 border border-[#ffed00] rounded-lg animate-border-glow pointer-events-none"></div>
-                    <div className="relative z-10">
-                        <h3 className="font-semibold mb-2 text-[#ffed00]">
-                        Portfolio Websites
-                        </h3>
-                        <p>Modern personal websites for developers & freelancers.</p>
-                    </div>
-                </div>
-
-                </div>
-                <div className="mt-8" data-aos="fade-up">
-                    <h2 className="text-3xl font-semibold mb-4 text-[#ffed00] text-center uppercase mt-8">Tech Stack</h2>
-                    <div>
-                        <h4 className='text-2xl text-[#ffed00] uppercase mb-4'>Frontend Engineering</h4>
-                        <div className="stacks grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10mb-12 py-12" data-aos="fade-right">
-                            {(stacks.frontend || []).map((s) => (
-                                <div key={`frontend-${s.name}`} className="flex flex-col items-center">
-                                    <img className='w-20' src={s.src || placeholderIcon} alt={s.name}/>
-                                    <p className='text-[#ffed00]' >{s.name}</p>
-                                </div>
-                            ))}
+    <section id="services" className="px-4 md:px-12 lg:px-12 py-16" data-aos="fade-up">
+        <div>
+            <h2 className="text-center text-[#ffed00] font-sora text-4xl font-bold uppercase mb-8">SERVICES</h2>
+            <div className='flex text-center flex-col md:flex-row gap-6 justify-center'>
+                {[
+                    { title: 'Landing Page Development', desc: 'Responsive, animated and conversion-optimized landing pages' },
+                    { title: 'Speed Optimization', desc: "Boost your site's performance and load times." },
+                    { title: 'Web Templates', desc: 'Custom HTML & Tailwind CSS templates for fast creation.' },
+                    { title: 'Portfolio Websites', desc: 'Modern personal websites for developers & freelancers.' },
+                ].map((service) => (
+                    <div
+                        key={service.title}
+                        className="group relative p-12 rounded-lg transition-all duration-300"
+                        data-aos="fade-up"
+                        style={{
+                            background: 'rgba(255, 255, 255, 0.04)',
+                            backdropFilter: 'blur(16px) saturate(180%)',
+                            WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+                            border: '1px solid rgba(255, 237, 0, 0.15)',
+                            boxShadow: '0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07)',
+                        }}
+                    >
+                        {/* Hover glow */}
+                        <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none"
+                            style={{ background: 'radial-gradient(ellipse at top, rgba(255,237,0,0.07), transparent 70%)' }}
+                        />
+                        {/* Specular highlight */}
+                        <div className="absolute top-0 left-4 right-4 h-px rounded-full pointer-events-none"
+                            style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)' }}
+                        />
+                        <div className="relative z-10">
+                            <h3 className="font-semibold font-sora mb-2 text-[#ffed00]">{service.title}</h3>
+                            <p className="text-zinc-300">{service.desc}</p>
                         </div>
                     </div>
-                    <div>
-                        <h4 className='text-2xl text-[#ffed00] uppercase mb-4'>Backend Engineering</h4>
-                        <div className="stacks grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 mb-12 py-12" data-aos="fade-right">
-                            {(stacks.backend || []).map((s) => (
-                                <div key={`backend-${s.name}`} className="flex flex-col items-center">
-                                    <img className='w-20' src={s.src || placeholderIcon} alt={s.name} />
-                                    <p className='text-[#ffed00]'>{s.name}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div>
-                        <h4 className='text-2xl text-[#ffed00] uppercase mb-4'>Databases</h4>
-                        <div className="stacks grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 mb-12 py-12" data-aos="fade-right">
-                            {(stacks.databases || []).map((s) => (
-                                <div key={`databases-${s.name}`} className="flex flex-col items-center">
-                                    <img className='w-20' src={s.src || placeholderIcon} alt={s.name} />
-                                    <p className='text-[#ffed00]'>{s.name}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div>
-                        <h4 className='text-2xl text-[#ffed00] uppercase mb-4'>Cloud, DevOps & Infrastructure</h4>
-                        <div className="stacks grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 mb-12 py-12" data-aos="fade-right">
-                            {(stacks.infra || []).map((s) => (
-                                <div key={`infra-${s.name}`} className="flex flex-col items-center">
-                                    <img className='w-20' src={s.src || placeholderIcon} alt={s.name} />
-                                    <p className='text-[#ffed00]'>{s.name}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                </div>
-
+                ))}
             </div>
-        </section>
+
+            <div className="mt-8" data-aos="fade-up">
+                <h2 className="text-3xl font-semibold mb-4 text-[#ffed00] text-center uppercase mt-8">Tech Stack</h2>
+
+                {[
+                    { label: 'Frontend Engineering', key: 'frontend', dir: 'fade-right' },
+                    { label: 'Backend Engineering', key: 'backend', dir: 'fade-right' },
+                    { label: 'Databases', key: 'databases', dir: 'fade-right' },
+                    { label: 'Cloud, DevOps & Infrastructure', key: 'infra', dir: 'fade-right' },
+                ].map(({ label, key, dir }) => (
+                    <div key={key}>
+                        <h4 className='text-2xl text-[#ffed00] uppercase mb-4'>{label}</h4>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 mb-12 py-12" data-aos={dir}>
+                            {(stacks[key] || []).map((s) => (
+                                <div
+                                    key={`${key}-${s.name}`}
+                                    className="group flex flex-col items-center gap-2 p-4 rounded-xl transition-all duration-300"
+                                    style={{
+                                        background: 'rgba(255, 255, 255, 0.03)',
+                                        backdropFilter: 'blur(12px)',
+                                        WebkitBackdropFilter: 'blur(12px)',
+                                        border: '1px solid rgba(255, 255, 255, 0.06)',
+                                        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.05)',
+                                    }}
+                                >
+                                    <img className='w-20 transition-transform duration-300 group-hover:scale-110' src={s.src || placeholderIcon} alt={s.name}/>
+                                    <p className='text-[#ffed00] text-sm'>{s.name}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
     );
 }
 

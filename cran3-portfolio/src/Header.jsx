@@ -3,6 +3,13 @@ import HeaderImg from "./assets/file_0000000010f8620aa60d0a29c4fa0915.png";
 
 function Header() {
     const [active, setActive] = useState('home');
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 20);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     useEffect(() => {
         // initialize from hash if present
@@ -40,9 +47,26 @@ function Header() {
 
     return(
         <>
-            <header className="hidden md:block fixed z-100 top-0 left-0 right-0 bg-black">
+            <header className="hidden md:block fixed z-100 top-0 left-0 right-0 transition-all duration-500"
+                    style={scrolled ? {
+                        background: 'rgba(255, 255, 255, 0.04)',
+                        backdropFilter: 'blur(16px) saturate(180%)',
+                        WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+                        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                        boxShadow: '0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07)',
+                    } : {
+                        background: 'transparent',
+                    }}
+
+            >
+                {scrolled && (
+                    <div className="absolute bottom-0 left-8 right-8 h-px pointer-events-none"
+                        style={{ background: 'linear-gradient(90deg, transparent, rgba(255,237,0,0.15), transparent)' }}
+                    />
+                )}
+
                 <nav className="flex font-space-grotesk items-center justify-between p-4 max-w-7xl mx-auto"> 
-                    <img className="w-16 " src={HeaderImg} alt="header-logo"/>
+                    <img className="w-16 animate-pulse" src={HeaderImg} alt="header-logo"/>
                     <ul className="flex gap-6">
                         <li>
                             <a

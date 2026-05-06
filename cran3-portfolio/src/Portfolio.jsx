@@ -64,25 +64,49 @@ function Portfolio() {
         <section id="portfolio" className="" data-aos="fade-up">
             <div className="flex flex-col max-w-6xl mx-auto px-4 md:px-12 lg:px-12 py-16 gap-12">
                 <h2 className="text-center text-[#ffed00] font-sora text-4xl font-bold uppercase mb-8">Portfolio</h2>
-               <div className="portfolio-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-               <div className="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-300 z-0 bg-[#ffed00]/10"></div>
-                   {portfolio.map((p) => (
-                       <div key={p.id} className="bg-zinc-900 text-zinc-100 rounded-2xl p-4 shadow-md hover:shadow-[0_0_30px_#ffed00] z-10 relative">
-                           <img src={p.img} alt={p.title} className='w-full h-40 object-cover rounded-xl mb-4' />
-                           <h3 className='text-xl font-semibold text-[#ffed00] mb-4'>{p.title}</h3>
-                           <p>{p.desc}</p>
-                           <a
-                                href={p.link ? p.link : '#'}
-                                className={p.link ? 'text-[#ffed00] hover:text-yellow-600' : 'text-gray-400 cursor-not-allowed'}
-                                >
-                                {p.link ? 'View Project' : 'Live preview unavailable'}
-                            </a>
+                <div className="portfolio-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {portfolio.map((p) => (
+                        <div
+                            key={p.id}
+                            className="group relative flex flex-col rounded-2xl p-4 shadow-md hover:shadow-[0_0_30px_#ffed00] z-10 overflow-hidden transition-all duration-300"
+                            style={{
+                                background: 'rgba(255, 255, 255, 0.04)',
+                                backdropFilter: 'blur(16px) saturate(180%)',
+                                WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+                                border: '1px solid rgba(255, 255, 255, 0.08)',
+                                boxShadow: '0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07)',
+                            }}
+                        >
+                            {/* Inner glow on hover */}
+                            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 z-0 pointer-events-none"
+                                style={{ background: 'radial-gradient(ellipse at top left, rgba(226, 212, 13, 0.23), transparent 70%) '}}
+                            />
 
-                       </div>
-                   ))}
-               </div>
+                            {/* Top specular highlight */}
+                            <div className="absolute top-0 left-4 right-4 h-px rounded-full z-0"
+                                style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)' }}
+                            />
+
+                            <img src={p.img} alt={p.title} className='relative z-10 w-full h-40 object-cover rounded-xl mb-4' />
+                            <h3 className='relative z-10 text-xl font-semibold text-[#ffed00] mb-4'>{p.title}</h3>
+                            <p className='relative z-10 text-zinc-300'>{p.desc}</p>
+
+                            <div className='relative z-10 mt-auto pt-3'>
+                                <a
+                                    href={p.link ? p.link : '#'}
+                                    className={p.link
+                                        ? 'text-[#ffed00] hover:text-yellow-600 transition-colors duration-200'
+                                        : 'text-gray-500 cursor-not-allowed'}
+                                >
+                                    {p.link ? 'View Project →' : 'Live preview unavailable'}
+                                </a>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
-            <div className="max-w-6xl mx-auto mt-12" data-aos="fade-up">
+
+            <div className="max-w-6xl mx-auto mt-12 px-4 md:px-12" data-aos="fade-up">
                 <h2 className="text-3xl font-semibold mb-4 text-[#ffed00] text-left uppercase mt-8">Job Positions Held</h2>
                 <div>
                     {jobPositions.map((job, index) => (
