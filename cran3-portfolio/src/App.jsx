@@ -1,10 +1,10 @@
-import Header from './Header'
-import Hero from './Hero'
-import About from './About' 
-import Service from './Service'
-import Portfolio from './Portfolio'
-import Contact from './contact'
-import Footer from './footer'
+import Header from './shared/Header'
+import Hero from './components/Hero'
+import About from './components/About'
+import Service from './components/Service'
+import Portfolio from './components/Portfolio'
+import Contact from './components/Contact'
+import Footer from './shared/footer'
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';

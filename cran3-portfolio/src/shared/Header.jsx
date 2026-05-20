@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import HeaderImg from "./assets/file_0000000010f8620aa60d0a29c4fa0915.png";
+import HeaderImg from "../assets/file_0000000010f8620aa60d0a29c4fa0915.png";
 
 function Header() {
     const [active, setActive] = useState('home');

@@ -52,3 +52,25 @@
   background-color: #fff066;
 }
 
+.portfolio-grid {
+  column-gap: 1.5rem;
+  column-count: 1;
+}
+
+@media (min-width: 640px) {
+  .portfolio-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-grid {
+    column-count: 3;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+

@@ -1,9 +1,9 @@
-import Balls from './assets/img/balls.png';
-import Crofam from './assets/img/Crofam.png';
-import dashboard from './assets/img/Dashboard.jpeg';
-import Eric from './assets/img/Eric.png';
-import Pris from './assets/img/prisltd.png';
-import smartClinic from './assets/img/smartClinic.jpeg';
+import Balls from '../assets/img/balls.png';
+import Crofam from '../assets/img/Crofam.png';
+import dashboard from '../assets/img/Dashboard.jpeg';
+import Eric from '../assets/img/Eric.png';
+import Pris from '../assets/img/prisltd.png';
+import smartClinic from '../assets/img/smartClinic.jpeg';
 function Portfolio() {
     const portfolio = [
         {

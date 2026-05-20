@@ -1,4 +1,4 @@
-import Img from './assets/file_0000000010f8620aa60d0a29c4fa0915.png';
+import Img from '../assets/file_0000000010f8620aa60d0a29c4fa0915.png';
 import { useEffect, useRef } from 'react';
 function About() {
 
