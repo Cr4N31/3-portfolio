@@ -1,125 +1,205 @@
+import { useState } from 'react';
 import Balls from '../assets/img/balls.png';
 import Crofam from '../assets/img/Crofam.png';
 import dashboard from '../assets/img/Dashboard.jpeg';
 import Eric from '../assets/img/Eric.png';
-import Pris from '../assets/img/prisltd.png';
+import Pris from '../assets/img/pris.png';
 import smartClinic from '../assets/img/smartClinic.jpeg';
+import forfoxsake from '../assets/img/forfoxsake.png';
+
+const projectImgs = import.meta.glob('../assets/img/projects/**/*.{png,jpg,jpeg}', { eager: true });
+
+const getGallery = (folder) =>
+    Object.entries(projectImgs)
+        .filter(([path]) => path.includes(`/projects/${folder}/`))
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([, mod]) => mod.default);
+
+function ProjectRow({ p }) {
+    const [galleryOpen, setGalleryOpen] = useState(false);
+    const gallery = getGallery(p.folder);
+
+    return (
+        <div className="border-t border-[#ffed00]/10 py-8 last:border-b last:border-[#ffed00]/10">
+
+            {/* Meta row */}
+            <div className="flex items-start justify-between gap-4 mb-5">
+                <div>
+                    <h3 className="font-serif text-2xl font-medium text-[#ffed00] mb-1">{p.title}</h3>
+                    <p className="text-sm text-zinc-400">{p.desc}</p>
+
+                    {/* Stack pills */}
+                    {p.stacks?.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mt-3">
+                            {p.stacks.map((s) => (
+                                <span
+                                    key={s}
+                                    className="text-[11px] px-3 py-1 rounded-full border border-[#ffed00]/20 text-[#ffed00]/60 bg-[#ffed00]/5 tracking-wide"
+                                >
+                                    {s}
+                                </span>
+                            ))}
+                        </div>
+                    )}
+                </div>
+
+                <div className="flex flex-col items-end gap-2 shrink-0">
+                    <a
+                        href={p.link || '#'}
+                        className={`text-sm border rounded-full px-4 py-1.5 transition-colors duration-200 ${
+                            p.link
+                                ? 'border-[#ffed00]/30 text-[#ffed00] hover:bg-[#ffed00]/10'
+                                : 'border-white/5 text-zinc-600 pointer-events-none'
+                        }`}
+                    >
+                        {p.link ? 'View Project →' : 'Live preview unavailable'}
+                    </a>
+
+                    {gallery.length > 0 && (
+                        <button
+                            onClick={() => setGalleryOpen(!galleryOpen)}
+                            className="text-sm border border-[#ffed00]/20 text-[#ffed00]/50 rounded-full px-4 py-1.5 hover:bg-[#ffed00]/5 transition-colors duration-200"
+                        >
+                            {galleryOpen ? 'Hide Gallery ↑' : `Gallery (${gallery.length}) ↓`}
+                        </button>
+                    )}
+                </div>
+            </div>
+
+            {/* Cover image */}
+            {p.img && (
+                <img
+                    src={p.img}
+                    alt={`${p.title} screenshot`}
+                    className="w-full h-56 object-cover rounded-xl border border-[#ffed00]/10"
+                />
+            )}
+
+            {/* Gallery grid */}
+            {gallery.length > 0 && galleryOpen && (
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-2">
+                    {gallery.map((src, idx) => (
+                        <img
+                            key={idx}
+                            src={src}
+                            alt={`${p.title} gallery ${idx + 1}`}
+                            className="w-full h-40 object-cover rounded-xl border border-[#ffed00]/10"
+                        />
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+}
+
 function Portfolio() {
     const portfolio = [
         {
             id: 'balls',
+            folder: 'balls',
             title: '$BALLS Web Platform',
             desc: 'A marketing platform for the $BALLS token community with Web3 integrations.',
+            stacks: ['React', 'Web3.js', 'TailwindCSS', 'Vercel'],
             img: Balls,
             link: 'https://www.myballs.me/'
         },
         {
             id: 'smartclinic',
+            folder: 'smartclinic',
             title: 'Smart Clinic',
-            desc: 'A web application that collects the medical data and tracks weekly vitals of users. Demo site auth system uses random values to permit access to the dashboard. loginInfo is user@gmail.com and pass1234 ',
+            desc: 'A web application that collects the medical data and tracks weekly vitals of users. Demo auth: user@gmail.com / pass1234',
+            stacks: ['React', 'Node.js', 'Express', 'MongoDB'],
             img: smartClinic,
             link: 'https://smart-clinic-rho.vercel.app/'
         },
         {
             id: 'Dashboard',
+            folder: 'dashboard',
             title: 'Dashboard UI',
-            desc: 'This project is a React-based dashboard application focused on building a solid authentication flow and laying the foundation for a full dashboard system. loginInfo is user@gmail.com and pass1234',
+            desc: 'React-based dashboard with authentication flow and full dashboard system foundation. Demo auth: user@gmail.com / pass1234',
+            stacks: ['React', 'TailwindCSS', 'Vercel'],
             img: dashboard,
             link: 'https://dashboard-authentication-six.vercel.app/'
         },
         {
             id: 'eric',
+            folder: 'eric',
             title: '$ERIC Token Promo',
             desc: 'Bold animated crypto promo site built for traction and brand identity.',
+            stacks: ['React', 'GSAP', 'TailwindCSS'],
             img: Eric,
             link: 'https://erictoken.app/'
         },
-                {
+        {
             id: 'pris',
+            folder: 'pris',
             title: 'PRIS LTD',
-            desc: 'Functional Website built for a real estate/ construction firm',
+            desc: 'Functional website built for a real estate and construction firm.',
+            stacks: ['HTML', 'CSS', 'JavaScript', 'Netlify'],
             img: Pris,
             link: 'https://prisltd.netlify.app/'
         },
-
-    ]
+        {
+            id: 'ffs',
+            folder: 'ffs',
+            title: 'For Fox Sake Dapp',
+            desc: 'Fullstack dApp built for the FFS (For Fox Sake) token on the Cronos network.',
+            stacks: ['PERN', 'Reown', 'TailwindCSS', 'Vercel', 'Render', 'Supabase'],
+            img: forfoxsake,
+            link: 'https://forfoxsakecro.de/'
+        }
+    ];
 
     const jobPositions = [
         {
             company: 'Felamok IT Services',
             role: 'Frontend Developer & Cybersecurity Intern',
             duration: '4th July 2025 - 4th October 2025',
-            desc: `
-                Worked as a Junior IT staff, My main task were to shadow the senior staffs in their daily. 
-                I also worked in setting up their data privacy and compliance department which is under the NDPR law and best practices to secure personal data and stay compliant, 
-                I set up their bulk sms and email disributor, collected data on chartered accountants, lawyers, bankers and even institutions registered under different financial institues such as ANAN, CBN, NIBBS, ITF etc. 
-                these datas included company names, company email addresses, phone numbers, company addresses. I also worked on the email templates making sure the write ups weren't generic and fully captured the true aim of the company. 
-                I was also assigned the task of creating the website. It contained a simple online tool called The Data Breach Cost Calculator, A tool which helps companies estimate the potential financial impact of a data breach by first selecting their industry(banking, accounting, IT, etc)
-                and then calculating the potential finanacial breach costs based on various factors such as the size of the breach, basic data volume (eg number of customers & type of data processed), and location. The tool is meant to help corporations, industries and firms stay compliant and avoid sanctions from the NDPR & NDPA.
-            `,
+            desc: `Worked as a Junior IT staff, shadowing senior staff in their daily operations. 
+                I also worked in setting up their data privacy and compliance department under the NDPR law and best practices to secure personal data and stay compliant. 
+                I set up their bulk SMS and email distributor, collected data on chartered accountants, lawyers, bankers and institutions registered under financial bodies such as ANAN, CBN, NIBBS, ITF etc. 
+                I also worked on email templates, making sure the write-ups fully captured the company's true aim. 
+                I was assigned to build their website, which included a Data Breach Cost Calculator — a tool that helps companies estimate the potential financial impact of a data breach based on industry, breach size, data volume, and location, helping firms stay compliant with the NDPR & NDPA.`,
         }
-    ]
+    ];
 
-    return(
-        <section id="portfolio" className="" data-aos="fade-up">
-            <div className="flex flex-col max-w-6xl mx-auto px-4 md:px-12 lg:px-12 py-16 gap-12">
-                <h2 className="text-center text-[#ffed00] font-sora text-4xl font-bold uppercase mb-8">Portfolio</h2>
-                <div className="portfolio-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    return (
+        <section id="portfolio" data-aos="fade-up">
+            <div className="max-w-6xl mx-auto px-4 md:px-12 py-16">
+
+                {/* Header */}
+                <div className="text-center mb-14">
+                    <span className="inline-block text-[11px] tracking-widest uppercase text-zinc-400 border border-[#ffed00]/20 rounded-full px-4 py-1 mb-5">
+                        Selected Work
+                    </span>
+                    <h2 className="font-serif text-4xl md:text-5xl font-medium text-[#ffed00] leading-tight">
+                        Projects that <em>ship</em>
+                    </h2>
+                </div>
+
+                {/* Project rows */}
+                <div>
                     {portfolio.map((p) => (
-                        <div
-                            key={p.id}
-                            className="group relative flex flex-col rounded-2xl p-4 shadow-md hover:shadow-[0_0_30px_#ffed00] z-10 overflow-hidden transition-all duration-300"
-                            style={{
-                                background: 'rgba(255, 255, 255, 0.04)',
-                                backdropFilter: 'blur(16px) saturate(180%)',
-                                WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-                                border: '1px solid rgba(255, 255, 255, 0.08)',
-                                boxShadow: '0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07)',
-                            }}
-                        >
-                            {/* Inner glow on hover */}
-                            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 z-0 pointer-events-none"
-                                style={{ background: 'radial-gradient(ellipse at top left, rgba(226, 212, 13, 0.23), transparent 70%) '}}
-                            />
-
-                            {/* Top specular highlight */}
-                            <div className="absolute top-0 left-4 right-4 h-px rounded-full z-0"
-                                style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)' }}
-                            />
-
-                            <img src={p.img} alt={p.title} className='relative z-10 w-full h-40 object-cover rounded-xl mb-4' />
-                            <h3 className='relative z-10 text-xl font-semibold text-[#ffed00] mb-4'>{p.title}</h3>
-                            <p className='relative z-10 text-zinc-300'>{p.desc}</p>
-
-                            <div className='relative z-10 mt-auto pt-3'>
-                                <a
-                                    href={p.link ? p.link : '#'}
-                                    className={p.link
-                                        ? 'text-[#ffed00] hover:text-yellow-600 transition-colors duration-200'
-                                        : 'text-gray-500 cursor-not-allowed'}
-                                >
-                                    {p.link ? 'View Project →' : 'Live preview unavailable'}
-                                </a>
-                            </div>
-                        </div>
+                        <ProjectRow key={p.id} p={p} />
                     ))}
                 </div>
             </div>
 
+            {/* Job Positions */}
             <div className="max-w-6xl mx-auto mt-12 px-4 md:px-12" data-aos="fade-up">
-                <h2 className="text-3xl font-semibold mb-4 text-[#ffed00] text-left uppercase mt-8">Job Positions Held</h2>
+                <h2 className="text-3xl font-semibold mb-8 text-[#ffed00] text-left uppercase mt-8">Job Positions Held</h2>
                 <div>
                     {jobPositions.map((job, index) => (
-                        <div key={`job-${index}`}>
+                        <div key={`job-${index}`} className="border-t border-[#ffed00]/10 py-8">
                             <h3 className="text-xl font-semibold text-[#ffed00] mb-2">{job.role} at {job.company}</h3>
-                            <p className="bg-[#ffed00] font-bold text-black inline-block p-2">{job.duration}</p>
-                            <p className='text-lg mt-2'>{job.desc}</p>
+                            <p className="bg-[#ffed00] font-bold text-black inline-block p-2 mb-3">{job.duration}</p>
+                            <p className="text-zinc-300 text-base leading-relaxed mt-2">{job.desc}</p>
                         </div>
                     ))}
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
-export default Portfolio
+export default Portfolio;
