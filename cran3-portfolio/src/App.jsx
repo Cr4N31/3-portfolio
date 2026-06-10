@@ -3,7 +3,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Service from './components/Service'
 import Portfolio from './components/Portfolio'
-import Contact from './components/contact'
+import Contact from './components/Contact'
 import Footer from './shared/footer'
 import { useEffect } from 'react';
 import AOS from 'aos';
@@ -25,7 +25,7 @@ function App() {
       <About/>
       <Service/>
       <Portfolio/>
-      <contact/>
+      <Contact/>
       <Footer/>
     </div>
   )
