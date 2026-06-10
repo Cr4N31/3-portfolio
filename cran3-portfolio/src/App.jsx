@@ -4,7 +4,7 @@ import About from './components/About'
 import Service from './components/Service'
 import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
-import Footer from './shared/footer'
+import Footer from './shared/Footer'
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
