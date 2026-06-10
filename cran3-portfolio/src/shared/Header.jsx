@@ -12,7 +12,6 @@ function Header() {
     }, []);
 
     useEffect(() => {
-        // initialize from hash if present
         if (typeof window !== 'undefined') {
             const initial = window.location.hash.replace('#', '') || 'home';
             setActive(initial);
@@ -21,7 +20,6 @@ function Header() {
         const onHashChange = () => setActive(window.location.hash.replace('#', '') || 'home');
         window.addEventListener('hashchange', onHashChange);
 
-        // Observe sections to update active link on scroll
         const ids = ['home', 'about', 'services', 'portfolio', 'contact'];
         const observer = new IntersectionObserver(
             (entries) => {
@@ -31,7 +29,11 @@ function Header() {
                     }
                 });
             },
-            { root: null, threshold: 0.5 }
+            {
+                root: null,
+                rootMargin: '-40% 0px -55% 0px', // triggers when section hits ~40% from top
+                threshold: 0,
+            }
         );
 
         ids.forEach((id) => {
@@ -45,79 +47,59 @@ function Header() {
         };
     }, []);
 
-    return(
-        <>
-            <header className="hidden md:block fixed z-100 top-0 left-0 right-0 transition-all duration-500"
-                    style={scrolled ? {
-                        background: 'rgba(255, 255, 255, 0.04)',
-                        backdropFilter: 'blur(16px) saturate(180%)',
-                        WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-                        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-                        boxShadow: '0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07)',
-                    } : {
-                        background: 'transparent',
-                    }}
+    const navLinks = [
+        { id: 'home', label: 'Home' },
+        { id: 'about', label: 'About' },
+        { id: 'services', label: 'Services' },
+        { id: 'portfolio', label: 'Portfolio' },
+        { id: 'contact', label: 'Contact' },
+    ];
 
+    return (
+        <>
+            <header
+                className="hidden md:block fixed z-100 top-0 left-0 right-0 transition-all duration-500"
+                style={scrolled ? {
+                    background: 'rgba(255, 255, 255, 0.04)',
+                    backdropFilter: 'blur(16px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+                    borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                    boxShadow: '0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07)',
+                } : {
+                    background: 'transparent',
+                }}
             >
                 {scrolled && (
-                    <div className="absolute bottom-0 left-8 right-8 h-px pointer-events-none"
+                    <div
+                        className="absolute bottom-0 left-8 right-8 h-px pointer-events-none"
                         style={{ background: 'linear-gradient(90deg, transparent, rgba(255,237,0,0.15), transparent)' }}
                     />
                 )}
 
-                <nav className="flex font-space-grotesk items-center justify-between p-4 max-w-7xl mx-auto"> 
-                    <img className="w-16 animate-pulse" src={HeaderImg} alt="header-logo"/>
+                <nav className="flex font-space-grotesk items-center justify-between p-4 max-w-7xl mx-auto">
+                    <img className="w-16 animate-pulse" src={HeaderImg} alt="header-logo" />
                     <ul className="flex gap-6">
-                        <li>
-                            <a
-                                href="#home"
-                                onClick={() => setActive('home')}
-                                aria-current={active === 'home' ? 'page' : undefined}
-                                className={`transition-colors duration-150 ${active === 'home' ? 'text-yellow-600' : 'text-[#ffed00] hover:text-[#e6d400]'}`}>
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#about"
-                                onClick={() => setActive('about')}
-                                aria-current={active === 'about' ? 'page' : undefined}
-                                className={`transition-colors duration-150 ${active === 'about' ? 'text-yellow-600' : 'text-[#ffed00] hover:text-[#e6d400]'}`}>
-                                About
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#services"
-                                onClick={() => setActive('services')}
-                                aria-current={active === 'services' ? 'page' : undefined}
-                                className={`transition-colors duration-150 ${active === 'services' ? 'text-yellow-600' : 'text-[#ffed00] hover:text-[#e6d400]'}`}>
-                                Services
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#portfolio"
-                                onClick={() => setActive('portfolio')}
-                                aria-current={active === 'portfolio' ? 'page' : undefined}
-                                className={`transition-colors duration-150 ${active === 'portfolio' ? 'text-yellow-600' : 'text-[#ffed00] hover:text-[#e6d400]'}`}>
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#contact"
-                                onClick={() => setActive('contact')}
-                                aria-current={active === 'contact' ? 'page' : undefined}
-                                className={`transition-colors duration-150 ${active === 'contact' ? 'text-yellow-600' : 'text-[#ffed00] hover:text-[#e6d400]'}`}>
-                                Contact
-                            </a>
-                        </li>
+                        {navLinks.map(({ id, label }) => (
+                            <li key={id}>
+                                <a
+                                    href={`#${id}`}
+                                    onClick={() => setActive(id)}
+                                    aria-current={active === id ? 'page' : undefined}
+                                    className={`transition-all duration-200 ${
+                                        active === id
+                                            ? 'text-[#ffed00] border-b border-[#ffed00] pb-0.5'
+                                            : 'text-zinc-400 hover:text-[#ffed00]'
+                                    }`}
+                                >
+                                    {label}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </nav>
             </header>
         </>
-    )
+    );
 }
 
-export default Header 
+export default Header;

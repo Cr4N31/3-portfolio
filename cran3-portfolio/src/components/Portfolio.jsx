@@ -178,7 +178,7 @@ function Portfolio() {
                 </div>
 
                 {/* Project rows */}
-                <div>
+                <div data-aos="fade-up">
                     {portfolio.map((p) => (
                         <ProjectRow key={p.id} p={p} />
                     ))}
