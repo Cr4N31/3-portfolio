@@ -7,7 +7,7 @@ import tailwindIcon from '../assets/icons/tailwindcss.svg';
 import nodeIcon from '../assets/icons/nodejs.svg';
 import expressIcon from '../assets/icons/expressjs.svg';
 import graphqlIcon from '../assets/icons/graphql.svg';
-import mongodbIcon from '../assets/icons/mongodb.svg';
+import postgresqlIcon from '../assets/icons/postgresql.svg';
 import mysqlIcon from '../assets/icons/mysql.svg';
 import dockerIcon from '../assets/icons/docker.svg';
 import awsIcon from '../assets/icons/aws.svg';
@@ -34,7 +34,7 @@ function Service({ stacks: propStacks }) {
             { name: 'NextJS', src: nextIcon },
         ],
         databases: [
-            { name: 'MongoDB', src: mongodbIcon },
+            { name: 'PostgreSQL', src: postgresqlIcon },
             { name: 'MySQL', src: mysqlIcon },
         ],
         infra: [

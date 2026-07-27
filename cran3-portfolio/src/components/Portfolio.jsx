@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import Balls from '../assets/img/balls.png';
-import Crofam from '../assets/img/Crofam.png';
-import dashboard from '../assets/img/Dashboard.jpeg';
-import Eric from '../assets/img/Eric.png';
-import Pris from '../assets/img/pris.png';
-import smartClinic from '../assets/img/smartClinic.jpeg';
 import forfoxsake from '../assets/img/forfoxsake.png';
+import NewWolfOrder from '../assets/img/NewWolfOrder.png';
+import ApexHuntress from '../assets/img/ApexHuntress.png';
+import Maxify from '../assets/img/maxify.png';
+import OneclickTutors from '../assets/img/OneclickTutors.png';
 
 const projectImgs = import.meta.glob('../assets/img/projects/**/*.{png,jpg,jpeg}', { eager: true });
 
@@ -95,51 +93,6 @@ function ProjectRow({ p }) {
 function Portfolio() {
     const portfolio = [
         {
-            id: 'balls',
-            folder: 'balls',
-            title: '$BALLS Web Platform',
-            desc: 'A marketing platform for the $BALLS token community with Web3 integrations.',
-            stacks: ['React', 'Web3.js', 'TailwindCSS', 'Vercel'],
-            img: Balls,
-            link: 'https://www.myballs.me/'
-        },
-        {
-            id: 'smartclinic',
-            folder: 'smartclinic',
-            title: 'Smart Clinic',
-            desc: 'A web application that collects the medical data and tracks weekly vitals of users. Demo auth: user@gmail.com / pass1234',
-            stacks: ['React', 'Node.js', 'Express', 'MongoDB'],
-            img: smartClinic,
-            link: 'https://smart-clinic-rho.vercel.app/'
-        },
-        {
-            id: 'Dashboard',
-            folder: 'dashboard',
-            title: 'Dashboard UI',
-            desc: 'React-based dashboard with authentication flow and full dashboard system foundation. Demo auth: user@gmail.com / pass1234',
-            stacks: ['React', 'TailwindCSS', 'Vercel'],
-            img: dashboard,
-            link: 'https://dashboard-authentication-six.vercel.app/'
-        },
-        {
-            id: 'eric',
-            folder: 'eric',
-            title: '$ERIC Token Promo',
-            desc: 'Bold animated crypto promo site built for traction and brand identity.',
-            stacks: ['React', 'GSAP', 'TailwindCSS'],
-            img: Eric,
-            link: 'https://erictoken.app/'
-        },
-        {
-            id: 'pris',
-            folder: 'pris',
-            title: 'PRIS LTD',
-            desc: 'Functional website built for a real estate and construction firm.',
-            stacks: ['HTML', 'CSS', 'JavaScript', 'Netlify'],
-            img: Pris,
-            link: 'https://prisltd.netlify.app/'
-        },
-        {
             id: 'ffs',
             folder: 'ffs',
             title: 'For Fox Sake Dapp',
@@ -147,6 +100,42 @@ function Portfolio() {
             stacks: ['PERN', 'Reown', 'TailwindCSS', 'Vercel', 'Render', 'Supabase'],
             img: forfoxsake,
             link: 'https://forfoxsakecro.de/'
+        },
+        {
+            id: 'nwo',
+            folder: 'nwo',
+            title: 'New Wolf Order',
+            desc: 'A Web3 launchpad on the Cronos network with a full component library and dark-first design system.',
+            stacks: ['React', 'Web3.js', 'TailwindCSS', 'Vercel'],
+            img: NewWolfOrder,
+            link: 'https://new-wolf-order.vercel.app/'
+        },
+        {
+            id: 'apex-huntress',
+            folder: 'apex-huntress',
+            title: 'Apex Huntress',
+            desc: 'A 369-piece NFT collection site built on the Cronos network.',
+            stacks: ['React', 'Vite', 'TailwindCSS', 'Vercel'],
+            img: ApexHuntress,
+            link: 'https://www.apexhuntress.com/'
+        },
+        {
+            id: 'maxify',
+            folder: 'maxify',
+            title: 'Maxify.ng',
+            desc: 'A Nigerian dropshipping storefront that bridges product discovery straight into WhatsApp sales.',
+            stacks: ['React', 'TailwindCSS'],
+            img: Maxify,
+            link: 'https://www.maxify.ng/'
+        },
+        {
+            id: 'oneclick-tutors',
+            folder: 'oneclick-tutors',
+            title: 'Oneclick Tutors',
+            desc: 'An AI-powered study platform for NOUN students, built with the Claude API.',
+            stacks: ['React', 'Claude API'],
+            img: OneclickTutors,
+            link: 'https://oneclick-tutors.vercel.app/'
         }
     ];
 
