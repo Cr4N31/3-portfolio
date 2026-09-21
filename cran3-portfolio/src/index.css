@@ -1,29 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&family=Sora:wght@400;600&display=swap');
+@import url("https://fonts.cdnfonts.com/css/suisse-intl");
 @import "tailwindcss";
+
+:root {
+  --font-primary: "Suisse Intl", "Suisse", "Helvetica Neue", Arial, sans-serif;
+}
+
 @keyframes border-glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 6px #ffed00;
   }
   50% {
-    box-shadow: 0 0 18px #ffed00, 0 0 30px rgba(255, 237, 0, 0.4);
+    box-shadow:
+      0 0 18px #ffed00,
+      0 0 30px rgba(255, 237, 0, 0.4);
   }
+}
+
+html,
+body {
+  font-family: var(--font-primary);
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .animate-border-glow {
   animation: border-glow 2s ease-in-out infinite;
 }
 
-.font-sora {
-  font-family: 'Sora', sans-serif;
+.font-redaction,
+.font-suisse,
+.font-sora,
+.font-space-grotesk,
+.headline,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+li,
+button,
+input,
+textarea,
+select,
+label {
+  font-family: var(--font-primary);
 }
-.font-space-grotesk {
-  font-family: 'Space Grotesk', sans-serif;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  letter-spacing: -0.04em;
 }
-    h1,
-    h2,
-    h3 {
-      font-family: 'Space Grotesk', sans-serif;
-    }
 
 /* ===== Custom Scrollbar ===== */
 
@@ -73,4 +113,3 @@
   break-inside: avoid;
   margin-bottom: 1.5rem;
 }
-
