@@ -58,33 +58,7 @@ function Header() {
 
   return (
     <>
-      <header
-        className="hidden md:block fixed z-100 top-0 left-0 right-0 transition-all duration-500"
-        style={
-          scrolled
-            ? {
-                background: "rgba(255, 255, 255, 0.04)",
-                backdropFilter: "blur(16px) saturate(180%)",
-                WebkitBackdropFilter: "blur(16px) saturate(180%)",
-                borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
-                boxShadow:
-                  "0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07)",
-              }
-            : {
-                background: "transparent",
-              }
-        }
-      >
-        {scrolled && (
-          <div
-            className="absolute bottom-0 left-8 right-8  pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(90deg, transparent, rgba(255,237,0,0.15), transparent)",
-            }}
-          />
-        )}
-
+      <header className="hidden md:block fixed z-100 top-0 left-0 right-0 transition-all duration-500">
         <nav className="flex items-center justify-between p-4 max-w-7xl mx-auto">
           <img
             className="w-16 animate-pulse"
@@ -100,8 +74,8 @@ function Header() {
                   aria-current={active === id ? "page" : undefined}
                   className={`transition-all duration-200 ${
                     active === id
-                      ? "text-[#ffed00] border-b border-[#ffed00] pb-0.5"
-                      : "text-zinc-400 hover:text-[#ffed00]"
+                      ? "text-[#111111] border-b border-[#111111] pb-0.5"
+                      : "text-zinc-600 hover:text-[#111111]"
                   }`}
                 >
                   {label}

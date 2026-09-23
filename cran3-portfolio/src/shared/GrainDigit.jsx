@@ -1,29 +1,14 @@
 import { useEffect, useRef } from "react";
 
-/**
- * Renders a single character as a field of scattered dots rather than a
- * solid glyph — used for the CRAN3 "3" mark.
- *
- * How it works: the character is drawn once on a hidden canvas so we can
- * read its pixel data (this tells us exactly which coordinates fall
- * inside the glyph's shape, curves and all). We then walk a grid over
- * that shape and, for each point that lands inside it, register a dot
- * with a randomized size/position/opacity — skipping some points at
- * random so the density looks organic rather than a rigid grid.
- *
- * Those dots are then redrawn every frame with a small per-dot sine/cosine
- * offset (own phase + own speed) so the whole mark gently drifts and
- * shimmers in place, rather than sitting static. The offsets are kept
- * small on purpose so the "3" stays legible.
- *
- * The layout randomness is seeded, so the base pattern is stable across
- * reloads instead of reshuffling every visit — only the live motion
- * differs from frame to frame.
- */
 function GrainDigit({
   char = "3",
   color = "#ffed00",
   seed = 1337,
+  // Hard cap in px, both width and height. This is what stops the canvas
+  // from filling the whole viewport if whatever wraps it doesn't give it
+  // an explicit size (the mobile bug) — it will still shrink smaller for
+  // a tighter parent, it just can never grow past this.
+  maxSize = 280,
   className = "",
 }) {
   const canvasRef = useRef(null);
@@ -146,7 +131,8 @@ function GrainDigit({
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className={`block w-full h-full ${className}`}
+      className={`block w-full h-full aspect-square mx-auto ${className}`}
+      style={{ maxWidth: maxSize, maxHeight: maxSize }}
     />
   );
 }

@@ -1,4 +1,3 @@
-import Header from "./shared/Header";
 import StackedHero from "./shared/StackedHero";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -20,8 +19,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-black text-white scroll-smooth">
-      <Header />
+    <div className="bg-[#f5f2eb] text-[#111111] scroll-smooth">
       <StackedHero>
         <Hero />
       </StackedHero>

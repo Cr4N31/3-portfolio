@@ -1,48 +1,124 @@
-function Contact() {
-    return(
-        <section id="contact" className="bg-black text-zinc-100 py-16 px-4">
-            <div className="max-w-xl mx-auto text-center">
-                <h2 className="headline text-center text-[#ffed00] text-4xl font-bold uppercase mb-4">Contact Me</h2>
-                <p className="text-zinc-400 mb-8 text-sm">Reach out or connect with me on any of the platforms below.</p>
+import { useState } from "react";
 
-                <div className="flex justify-center gap-6 mb-6">
-                <a href="https://github.com/Cr4N31" target="_blank" className="group">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="1.5"
-                    className="w-8 h-8 transition transform group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_#ffed00]"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M16 22v-2.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77a5.07 5.07 0 0 0-.09-3.83s-1.18-.35-3.87 1.48a13.38 13.38 0 0 0-7 0C6.35.59 5.18.94 5.18.94A5.07 5.07 0 0 0 5.09 4.77 5.44 5.44 0 0 0 3 9.52c0 5.42 3.3 6.61 6.44 7a3.37 3.37 0 0 0-.94 2.6V22">
-                    </path>
-                    </svg>
-                </a>
+const initialForm = {
+  name: "",
+  email: "",
+  project: "",
+  context: "",
+};
 
-                <a href="https://www.tiktok.com/@crane.js?_t=ZS-8yJw90THcal&_r=1" target="_blank" className="group">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
-                    className="w-8 h-8 fill-white transition transform group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_#ffed00]">
-                    <path
-                        d="M224,80.25v29.5a8,8,0,0,1-16,0V92.64a63.85,63.85,0,0,1-40-12.1v72.46A56.07,56.07,0,1,1,88,104a8,8,0,0,1,0,16,40,40,0,1,0,40,40V32a8,8,0,0,1,8-8h24a8,8,0,0,1,8,8,40,40,0,0,0,40,40A8,8,0,0,1,224,80.25Z" />
-                    </svg>
-                </a>
+function ContactSection({ onSubmit }) {
+  const [form, setForm] = useState(initialForm);
+  const [submitted, setSubmitted] = useState(false);
 
-                <a href="https://www.instagram.com/_cran3.js?igsh=MTFyMDRhbWxuNmd5aQ==" target="_blank" className="group">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="1.5"
-                    className="w-8 h-8 transition transform group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_#ffed00]"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 1-5 5 5 5 0 0 1 5-5zm4.5-.5h.01">
-                    </path>
-                    </svg>
-                </a>
-                </div>
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setForm((current) => ({ ...current, [name]: value }));
+    setSubmitted(false);
+  };
 
-                <p className="text-sm text-zinc-400">
-                <span className="font-medium text-[#ffed00]">Email:</span>
-                <a href="mailto:cran3.js.dev@gmail.com"
-                    className="hover:underline hover:text-[#ffed00] ml-1">cran3.js.dev@gmail.com</a>
-                </p>
-            </div>
-        </section>
-    )
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit?.(form);
+    setSubmitted(true);
+  };
+
+  return (
+    <section
+      id="contact"
+      className="border-t border-black/10 bg-white px-4 py-20 sm:px-6 md:px-10 md:py-32"
+      aria-labelledby="contact-heading"
+    >
+      <div className="grid gap-16 md:grid-cols-[minmax(0,1.2fr)_minmax(20rem,0.8fr)] md:gap-20 lg:gap-28">
+        <div>
+          <p className="mb-8 text-xs uppercase tracking-[0.2em] text-white/40">
+            Contact
+          </p>
+          <h2
+            id="contact-heading"
+            className="max-w-4xl text-[clamp(3rem,8vw,8rem)] font-semibold leading-[0.9] tracking-[-0.04em] text-black"
+          >
+            Got a project?{" "}
+            <span className="text-[#ffed00]">Let&apos;s talk.</span>
+          </h2>
+          <p className="mt-8 max-w-md text-base leading-relaxed text-black/50 md:text-lg">
+            Tell me what you&apos;re building, where it needs to go, and what
+            should feel different when it&apos;s done.
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+          <div className="grid gap-8 sm:grid-cols-2">
+            <label className="flex flex-col gap-3 text-xs uppercase tracking-[0.16em] text-black/50">
+              Name
+              <input
+                required
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                className="border-b border-black/25 bg-transparent pb-3 text-base normal-case tracking-normal text-white outline-none transition-colors placeholder:text-black/25 focus:border-[#ffed00]"
+                placeholder="Your name"
+              />
+            </label>
+            <label className="flex flex-col gap-3 text-xs uppercase tracking-[0.16em] text-black/50">
+              Email
+              <input
+                required
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                className="border-b border-black/25 bg-transparent pb-3 text-base normal-case tracking-normal text-black outline-none transition-colors placeholder:text-black/25 focus:border-[#ffed00]"
+                placeholder="you@email.com"
+              />
+            </label>
+          </div>
+
+          <label className="flex flex-col gap-3 text-xs uppercase tracking-[0.16em] text-black/50">
+            Project
+            <input
+              name="project"
+              value={form.project}
+              onChange={handleChange}
+              className="border-b border-black/25 bg-transparent pb-3 text-base normal-case tracking-normal text-black outline-none transition-colors placeholder:text-black/25 focus:border-[#ffed00]"
+              placeholder="What are you building?"
+            />
+          </label>
+
+          <label className="flex flex-col gap-3 text-xs uppercase tracking-[0.16em] text-black/50">
+            A little context
+            <textarea
+              required
+              name="context"
+              value={form.context}
+              onChange={handleChange}
+              rows="4"
+              className="resize-y border-b border-black/25 bg-transparent pb-3 text-base normal-case tracking-normal text-black outline-none transition-colors placeholder:text-black/25 focus:border-[#ffed00]"
+              placeholder="Timeline, budget, what you have so far — whatever's useful"
+            />
+          </label>
+
+          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <a
+              type="submit"
+              href="mailto:cran3.js.dev@gmail.com"
+              className="group flex items-center gap-6 border border-black/40 px-5 py-3 text-xs uppercase tracking-[0.16em] text-black transition-colors hover:border-[#ffed00] hover:bg-[#ffed00] hover:text-black"
+            >
+              Start a project
+              <span className="text-xl leading-none transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </a>
+            {submitted && (
+              <p className="text-sm text-black/60" role="status">
+                Thanks — I&apos;ll get back to you soon.
+              </p>
+            )}
+          </div>
+        </form>
+      </div>
+    </section>
+  );
 }
 
-export default Contact
+export default ContactSection;

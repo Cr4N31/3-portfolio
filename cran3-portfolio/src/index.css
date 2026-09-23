@@ -1,8 +1,17 @@
-@import url("https://fonts.cdnfonts.com/css/suisse-intl");
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Suisse Intl Light";
+  src: url("/fonts/Suisse/SuisseIntl-Light/SuisseIntl-Light.ttf")
+    format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --font-primary: "Suisse Intl", "Suisse", "Helvetica Neue", Arial, sans-serif;
+  --font-primary:
+    "Suisse Intl Light", "Suisse Intl", "Suisse", Arial, sans-serif;
 }
 
 @keyframes border-glow {
@@ -20,22 +29,24 @@
 html,
 body {
   font-family: var(--font-primary);
+  background: #f5f2eb;
+  color: #111111;
 }
 
 body {
+  font-weight: 300;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #f5f2eb;
+  color: #111111;
 }
 
 .animate-border-glow {
   animation: border-glow 2s ease-in-out infinite;
 }
 
-.font-redaction,
 .font-suisse,
-.font-sora,
-.font-space-grotesk,
 .headline,
 h1,
 h2,
@@ -70,7 +81,7 @@ h6 {
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #ffed00 #000000;
+  scrollbar-color: #000000 #ffffff;
 }
 
 /* Chrome, Edge, Safari */
@@ -79,17 +90,17 @@ h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #ffed00;
+  background-color: #000000;
   border-radius: 999px;
-  border: 2px solid #000000;
+  border: 2px solid #ffffff;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #fff066;
+  background-color: #030303;
 }
 
 .portfolio-grid {

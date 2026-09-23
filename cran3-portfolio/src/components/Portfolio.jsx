@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import CursorWarpField from "../context/CursorWarpField";
 import forfoxsake from "../assets/img/forfoxsake.png";
 import NewWolfOrder from "../assets/img/NewWolfOrder.png";
 import ApexHuntress from "../assets/img/ApexHuntress.png";
@@ -16,85 +18,139 @@ const getGallery = (folder) =>
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([, mod]) => mod.default);
 
-function ProjectRow({ p }) {
-  const [galleryOpen, setGalleryOpen] = useState(false);
-  const gallery = getGallery(p.folder);
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
 
+// Grid card: cover image gets the cursor-warp hover distortion, click
+// kicks off the shared layoutId zoom into the full detail overlay.
+function ProjectCard({ p, onOpen }) {
   return (
-    <div className="border-t border-[#ffed00]/10 py-8 last:border-b last:border-[#ffed00]/10">
-      {/* Meta row */}
-      <div className="flex items-start justify-between gap-4 mb-5">
-        <div>
-          <h3 className="font-serif text-2xl font-medium text-[#ffed00] mb-1">
-            {p.title}
-          </h3>
-          <p className="text-sm text-zinc-400">{p.desc}</p>
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={fadeUp}
+      className="group"
+    >
+      <CursorWarpField intensity={26} className="block">
+        <button
+          type="button"
+          onClick={() => onOpen(p)}
+          className="block w-full relative aspect-[3/2] overflow-hidden rounded-2xl bg-black/5 text-left"
+        >
+          <motion.img
+            layoutId={`project-image-${p.id}`}
+            src={p.img}
+            alt={`${p.title} screenshot`}
+            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+        </button>
+      </CursorWarpField>
 
-          {/* Stack pills */}
-          {p.stacks?.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-3">
-              {p.stacks.map((s) => (
-                <span
-                  key={s}
-                  className="text-[11px] px-3 py-1 rounded-full border border-[#ffed00]/20 text-[#ffed00]/60 bg-[#ffed00]/5 tracking-wide"
-                >
-                  {s}
-                </span>
-              ))}
-            </div>
-          )}
-        </div>
+      <div className="mt-5">
+        {p.stacks?.length > 0 && (
+          <span className="block text-black/40 text-[11px] uppercase tracking-widest">
+            {p.stacks.join(" • ")}
+          </span>
+        )}
 
-        <div className="flex flex-col items-end gap-2 shrink-0">
-          <a
-            href={p.link || "#"}
-            className={`text-sm border rounded-full px-4 py-1.5 transition-colors duration-200 ${
-              p.link
-                ? "border-[#ffed00]/30 text-[#ffed00] hover:bg-[#ffed00]/10"
-                : "border-white/5 text-zinc-600 pointer-events-none"
-            }`}
-          >
-            {p.link ? "View Project →" : "Live preview unavailable"}
-          </a>
-
-          {gallery.length > 0 && (
-            <button
-              onClick={() => setGalleryOpen(!galleryOpen)}
-              className="text-sm border border-[#ffed00]/20 text-[#ffed00]/50 rounded-full px-4 py-1.5 hover:bg-[#ffed00]/5 transition-colors duration-200"
-            >
-              {galleryOpen ? "Hide Gallery ↑" : `Gallery (${gallery.length}) ↓`}
-            </button>
-          )}
+        <div className="flex items-center mt-2">
+          <span className="inline-block overflow-hidden w-0 group-hover:w-7 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
+            <span className="text-black text-2xl md:text-3xl pr-2">›</span>
+          </span>
+          <span className="text-black text-2xl md:text-3xl">{p.title}</span>
         </div>
       </div>
+    </motion.div>
+  );
+}
 
-      {/* Cover image */}
-      {p.img && (
-        <img
-          src={p.img}
-          alt={`${p.title} screenshot`}
-          className="w-full h-56 object-cover rounded-xl border border-[#ffed00]/10"
-        />
-      )}
+function ProjectOverlay({ project, onClose }) {
+  const gallery = project ? getGallery(project.folder) : [];
 
-      {/* Gallery grid */}
-      {gallery.length > 0 && galleryOpen && (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-2">
-          {gallery.map((src, idx) => (
-            <img
-              key={idx}
-              src={src}
-              alt={`${p.title} gallery ${idx + 1}`}
-              className="w-full h-40 object-cover rounded-xl border border-[#ffed00]/10"
+  return (
+    <AnimatePresence>
+      {project && (
+        <motion.div
+          className="fixed inset-0 z-[999] bg-white overflow-y-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <button
+            onClick={onClose}
+            aria-label="Close"
+            className="fixed top-6 right-6 z-10 w-10 h-10 rounded-full border border-black/20 text-black flex items-center justify-center hover:bg-white/10 transition-colors"
+          >
+            ×
+          </button>
+
+          <div className="max-w-4xl mx-auto px-6 md:px-0 py-24">
+            <motion.img
+              layoutId={`project-image-${project.id}`}
+              src={project.img}
+              alt={`${project.title} screenshot`}
+              className="w-full aspect-[3/2] object-cover rounded-2xl"
             />
-          ))}
-        </div>
+
+            <h3 className="font-serif text-3xl md:text-5xl text-black mt-8">
+              {project.title}
+            </h3>
+            <p className="text-black/60 mt-3 max-w-2xl">{project.desc}</p>
+
+            {project.stacks?.length > 0 && (
+              <div className="flex flex-wrap gap-2 mt-5">
+                {project.stacks.map((s) => (
+                  <span
+                    key={s}
+                    className="text-[11px] px-3 py-1 rounded-full border border-black/15 text-black/70 bg-black/5 tracking-wide"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            <div className="flex gap-3 mt-6">
+              <a
+                href={project.link || "#"}
+                target={project.link ? "_blank" : undefined}
+                rel={project.link ? "noreferrer" : undefined}
+                className={`text-sm border rounded-full px-4 py-1.5 transition-colors duration-200 ${
+                  project.link
+                    ? "border-black/20 text-black hover:bg-black/10"
+                    : "border-black/10 text-black/40 pointer-events-none"
+                }`}
+              >
+                {project.link ? "View Project →" : "Live preview unavailable"}
+              </a>
+            </div>
+
+            {gallery.length > 0 && (
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-10">
+                {gallery.map((src, idx) => (
+                  <img
+                    key={idx}
+                    src={src}
+                    alt={`${project.title} gallery ${idx + 1}`}
+                    className="w-full h-40 object-cover rounded-xl border border-black/10"
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        </motion.div>
       )}
-    </div>
+    </AnimatePresence>
   );
 }
 
 function Portfolio() {
+  const [activeProject, setActiveProject] = useState(null);
+
   const portfolio = [
     {
       id: "ffs",
@@ -157,47 +213,49 @@ function Portfolio() {
   ];
 
   return (
-    <section id="portfolio" data-aos="fade-up">
-      <div className="max-w-6xl mx-auto px-4 md:px-12 py-16">
-        {/* Header */}
-        <div className="text-center mb-14">
-          <h2 className="font-serif text-4xl md:text-5xl font-medium text-[#ffed00] leading-tight">
-            Projects that i've <em>shipped</em>
-          </h2>
-        </div>
+    <section
+      id="portfolio"
+      className="bg-white text-black py-24 md:py-32"
+      data-aos="fade-up"
+    >
+      <div className="max-w-6xl mx-auto px-4 md:px-12">
+        <h2 className="font-serif uppercase text-7xl md:text-9xl text-center leading-tight mb-14">
+          Projects
+        </h2>
 
-        {/* Project rows */}
-        <div data-aos="fade-up">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-4 md:gap-6">
           {portfolio.map((p) => (
-            <ProjectRow key={p.id} p={p} />
+            <ProjectCard key={p.id} p={p} onOpen={setActiveProject} />
           ))}
         </div>
       </div>
 
       {/* Job Positions */}
-      <div className="max-w-6xl mx-auto mt-12 px-4 md:px-12" data-aos="fade-up">
-        <h2 className="text-3xl font-semibold mb-8 text-[#ffed00] text-left uppercase mt-8">
+      <div className="max-w-6xl mx-auto mt-24 px-4 md:px-12" data-aos="fade-up">
+        <h2 className="text-3xl font-semibold mb-8 text-black text-left uppercase">
           Job Positions Held
         </h2>
         <div>
           {jobPositions.map((job, index) => (
-            <div
-              key={`job-${index}`}
-              className="border-t border-[#ffed00]/10 py-8"
-            >
-              <h3 className="text-xl font-semibold text-[#ffed00] mb-2">
+            <div key={`job-${index}`} className="border-t border-white/10 py-8">
+              <h3 className="text-xl font-semibold text-black mb-2">
                 {job.role} at {job.company}
               </h3>
-              <p className="bg-[#ffed00] font-bold text-black inline-block p-2 mb-3">
+              <p className="font-bold text-black inline-block p-2 mb-3">
                 {job.duration}
               </p>
-              <p className="text-zinc-300 text-base leading-relaxed mt-2">
+              <p className="text-black/60 text-base leading-relaxed mt-2">
                 {job.desc}
               </p>
             </div>
           ))}
         </div>
       </div>
+
+      <ProjectOverlay
+        project={activeProject}
+        onClose={() => setActiveProject(null)}
+      />
     </section>
   );
 }
