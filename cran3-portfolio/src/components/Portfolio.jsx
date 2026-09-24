@@ -210,12 +210,20 @@ function Portfolio() {
                 I also worked on email templates, making sure the write-ups fully captured the company's true aim. 
                 I was assigned to build their website, which included a Data Breach Cost Calculator — a tool that helps companies estimate the potential financial impact of a data breach based on industry, breach size, data volume, and location, helping firms stay compliant with the NDPR & NDPA.`,
     },
+    {
+      company: "Visium Studios",
+      role: "Product Designer & Developer",
+      duration: "25th August 2026 - Till Date",
+      desc: `Visium Studios is a visual systems studio building brands, digital experiences, and visual worlds for ambitious companies. I worked there as the Lead Developer, responsible for building and managing the studio’s web systems, as well as developing and maintaining web systems for clients they onboarded.
+              I worked closely with the branding and motion teams to translate creative concepts into high-quality digital products, ensuring each project met both the studio’s standards and client expectations.
+              `,
+    },
   ];
 
   return (
     <section
       id="portfolio"
-      className="bg-white text-black py-24 md:py-32"
+      className="bg-[#f5f2eb] text-black py-24 md:py-32"
       data-aos="fade-up"
     >
       <div className="max-w-6xl mx-auto px-4 md:px-12">
