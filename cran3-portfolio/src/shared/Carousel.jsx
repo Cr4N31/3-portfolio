@@ -2,11 +2,21 @@ import { useRef, useState, useLayoutEffect } from "react";
 import { motion, useMotionValue, useAnimationFrame } from "framer-motion";
 
 const capabilities = [
-  "Web3",
-  "Web Design",
-  "Mobile App Development",
-  "Data Engineering",
-  "Analytics",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "TypeScript",
+  "ReactJs",
+  "React Native",
+  "NodeJs",
+  "ExpressJs",
+  "PostgreSQL",
+  "SQLite",
+  "Git",
+  "Github",
+  "TailwindCss",
+  "Python",
+  "API",
 ];
 
 const SPEED = 40;

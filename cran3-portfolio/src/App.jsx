@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Service from "./components/Service";
 import Portfolio from "./components/Portfolio";
+import Carousel from "./shared/Carousel";
 import Contact from "./components/Contact";
 import Footer from "./shared/Footer";
 import { useEffect } from "react";
@@ -26,6 +27,7 @@ function App() {
       <About />
       <Service />
       <Portfolio />
+      <Carousel />
       <Contact />
       <Footer />
     </div>

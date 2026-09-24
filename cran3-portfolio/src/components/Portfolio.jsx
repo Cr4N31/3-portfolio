@@ -227,7 +227,7 @@ function Portfolio() {
       data-aos="fade-up"
     >
       <div className="max-w-6xl mx-auto px-4 md:px-12">
-        <h2 className="font-serif uppercase text-7xl md:text-9xl text-center leading-tight mb-14">
+        <h2 className="font-serif tracking-tighter uppercase text-7xl md:text-9xl text-center leading-tight mb-14">
           Projects
         </h2>
 
@@ -240,7 +240,7 @@ function Portfolio() {
 
       {/* Job Positions */}
       <div className="max-w-6xl mx-auto mt-24 px-4 md:px-12" data-aos="fade-up">
-        <h2 className="text-3xl font-semibold mb-8 text-black text-left uppercase">
+        <h2 className="text-3xl tracking-tighter font-semibold mb-8 text-black text-left uppercase">
           Job Positions Held
         </h2>
         <div>

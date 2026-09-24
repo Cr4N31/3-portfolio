@@ -20,15 +20,19 @@ function About() {
         <div className="font-serif leading-[1.2]">
           <p className="max-w-4xl text-2xl text-[#111111] md:text-4xl lg:text-5xl">
             A self-taught engineer based in Abuja, working under{" "}
-            <span className="text-[#ffed00]">CRAN3</span> mostly React, Node,
-            and Postgres, with the occasional dip into Web3 when a project calls
-            for it. I've handled web revamps, NFT collection sites, a
-            Cronos-based launchpad, and an AI-assisted study tool for
-            distance-learning students, usually from first conversation through
-            to what's actually shipped. Lately I've been spending more time with
-            data, extending rather than replacing what I already do. I keep
-            things fairly quiet, steady work, structure over noise, and a
-            long-term plan to build{" "}
+            <span className="font-bold">CRAN3</span> mostly React, Node, and
+            Postgres, with the occasional dip into Web3 when a project calls for
+            it. I've handled web revamps, NFT collection sites, a Cronos-based
+            launchpad, and an AI-assisted study tool for distance-learning
+            students, usually from first conversation through to what's actually
+            shipped. Lately I've been spending more time with data, extending
+            into the data engineering field gaining proficiency in{" "}
+            <span className="font-bold">
+              SQL, entry level python, ETL & ELT concepts, Data warehousing and
+              architecture
+            </span>{" "}
+            etc. I keep things fairly quiet. I believe in structure over noise,
+            and a long-term plan to build{" "}
             <span className="text-[#ffed00]">closer to home</span>.
           </p>
         </div>
