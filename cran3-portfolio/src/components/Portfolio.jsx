@@ -1,31 +1,33 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import CursorWarpField from "../context/CursorWarpField";
+import cygnetsquare from "../assets/img/cygnetsquare.png";
 import forfoxsake from "../assets/img/forfoxsake.png";
 import NewWolfOrder from "../assets/img/NewWolfOrder.png";
 import ApexHuntress from "../assets/img/ApexHuntress.png";
 import Maxify from "../assets/img/maxify.png";
 import OneclickTutors from "../assets/img/OneclickTutors.png";
 
-const projectImgs = import.meta.glob(
-  "../assets/img/projects/**/*.{png,jpg,jpeg}",
-  { eager: true },
-);
-
-const getGallery = (folder) =>
-  Object.entries(projectImgs)
-    .filter(([path]) => path.includes(`/projects/${folder}/`))
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([, mod]) => mod.default);
-
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
-// Grid card: cover image gets the cursor-warp hover distortion, click
-// kicks off the shared layoutId zoom into the full detail overlay.
-function ProjectCard({ p, onOpen }) {
+// Grid card: cover image gets the cursor-warp hover distortion.
+// Clicking opens whatever URL is saved under `link` in a new tab.
+// If a project has no link, the card renders as a plain, non-clickable block.
+function ProjectCard({ p }) {
+  const hasLink = Boolean(p.link);
+
+  const Wrapper = hasLink ? "a" : "div";
+  const wrapperProps = hasLink
+    ? {
+        href: p.link,
+        target: "_blank",
+        rel: "noopener noreferrer",
+        "aria-label": `Open ${p.title}`,
+      }
+    : {};
+
   return (
     <motion.div
       initial="hidden"
@@ -34,127 +36,50 @@ function ProjectCard({ p, onOpen }) {
       variants={fadeUp}
       className="group"
     >
-      <CursorWarpField intensity={26} className="block">
-        <button
-          type="button"
-          onClick={() => onOpen(p)}
-          className="block w-full relative aspect-[3/2] overflow-hidden rounded-2xl bg-black/5 text-left"
-        >
-          <motion.img
-            layoutId={`project-image-${p.id}`}
-            src={p.img}
-            alt={`${p.title} screenshot`}
-            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          />
-        </button>
-      </CursorWarpField>
+      <Wrapper {...wrapperProps} className="block">
+        <CursorWarpField intensity={26} className="block">
+          <div className="block w-full relative aspect-[3/2] overflow-hidden rounded-2xl bg-black/5">
+            <img
+              src={p.img}
+              alt={`${p.title} screenshot`}
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+          </div>
+        </CursorWarpField>
 
-      <div className="mt-5">
-        {p.stacks?.length > 0 && (
-          <span className="block text-black/40 text-[11px] uppercase tracking-widest">
-            {p.stacks.join(" • ")}
-          </span>
-        )}
+        <div className="mt-5">
+          {p.stacks?.length > 0 && (
+            <span className="block text-black/40 text-[11px] uppercase tracking-widest">
+              {p.stacks.join(" • ")}
+            </span>
+          )}
 
-        <div className="flex items-center mt-2">
-          <span className="inline-block overflow-hidden w-0 group-hover:w-7 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
-            <span className="text-black text-2xl md:text-3xl pr-2">›</span>
-          </span>
-          <span className="text-black text-2xl md:text-3xl">{p.title}</span>
+          <div className="flex items-center mt-2">
+            {hasLink && (
+              <span className="inline-block overflow-hidden w-0 group-hover:w-7 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out">
+                <span className="text-black text-2xl md:text-3xl pr-2">›</span>
+              </span>
+            )}
+            <span className="text-black text-2xl md:text-3xl">{p.title}</span>
+          </div>
         </div>
-      </div>
+      </Wrapper>
     </motion.div>
   );
 }
 
-function ProjectOverlay({ project, onClose }) {
-  const gallery = project ? getGallery(project.folder) : [];
-
-  return (
-    <AnimatePresence>
-      {project && (
-        <motion.div
-          className="fixed inset-0 z-[999] bg-white overflow-y-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <button
-            onClick={onClose}
-            aria-label="Close"
-            className="fixed top-6 right-6 z-10 w-10 h-10 rounded-full border border-black/20 text-black flex items-center justify-center hover:bg-white/10 transition-colors"
-          >
-            ×
-          </button>
-
-          <div className="max-w-4xl mx-auto px-6 md:px-0 py-24">
-            <motion.img
-              layoutId={`project-image-${project.id}`}
-              src={project.img}
-              alt={`${project.title} screenshot`}
-              className="w-full aspect-[3/2] object-cover rounded-2xl"
-            />
-
-            <h3 className="font-serif text-3xl md:text-5xl text-black mt-8">
-              {project.title}
-            </h3>
-            <p className="text-black/60 mt-3 max-w-2xl">{project.desc}</p>
-
-            {project.stacks?.length > 0 && (
-              <div className="flex flex-wrap gap-2 mt-5">
-                {project.stacks.map((s) => (
-                  <span
-                    key={s}
-                    className="text-[11px] px-3 py-1 rounded-full border border-black/15 text-black/70 bg-black/5 tracking-wide"
-                  >
-                    {s}
-                  </span>
-                ))}
-              </div>
-            )}
-
-            <div className="flex gap-3 mt-6">
-              <a
-                href={project.link || "#"}
-                target={project.link ? "_blank" : undefined}
-                rel={project.link ? "noreferrer" : undefined}
-                className={`text-sm border rounded-full px-4 py-1.5 transition-colors duration-200 ${
-                  project.link
-                    ? "border-black/20 text-black hover:bg-black/10"
-                    : "border-black/10 text-black/40 pointer-events-none"
-                }`}
-              >
-                {project.link ? "View Project →" : "Live preview unavailable"}
-              </a>
-            </div>
-
-            {gallery.length > 0 && (
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-10">
-                {gallery.map((src, idx) => (
-                  <img
-                    key={idx}
-                    src={src}
-                    alt={`${project.title} gallery ${idx + 1}`}
-                    className="w-full h-40 object-cover rounded-xl border border-black/10"
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-}
-
 function Portfolio() {
-  const [activeProject, setActiveProject] = useState(null);
-
   const portfolio = [
     {
+      id: "cyg",
+      title: "Cygnet Square",
+      desc: "A platform built to empower women through networking programs, skills development and access to essential resources and empowering independent financially secure lives.",
+      stacks: ["ReactJs", "TailwindCSS", "Javascript"],
+      img: cygnetsquare,
+      link: "https://forfoxsakecro.de/",
+    },
+    {
       id: "ffs",
-      folder: "ffs",
       title: "For Fox Sake Dapp",
       desc: "Fullstack dApp built for the FFS (For Fox Sake) token on the Cronos network.",
       stacks: ["PERN", "Reown", "TailwindCSS", "Vercel", "Render", "Supabase"],
@@ -163,7 +88,6 @@ function Portfolio() {
     },
     {
       id: "nwo",
-      folder: "nwo",
       title: "New Wolf Order",
       desc: "A Web3 launchpad on the Cronos network with a full component library and dark-first design system.",
       stacks: ["React", "Web3.js", "TailwindCSS", "Vercel"],
@@ -172,7 +96,6 @@ function Portfolio() {
     },
     {
       id: "apex-huntress",
-      folder: "apex-huntress",
       title: "Apex Huntress",
       desc: "A 369-piece NFT collection site built on the Cronos network.",
       stacks: ["React", "Vite", "TailwindCSS", "Vercel"],
@@ -181,7 +104,6 @@ function Portfolio() {
     },
     {
       id: "maxify",
-      folder: "maxify",
       title: "Maxify.ng",
       desc: "A Nigerian dropshipping storefront that bridges product discovery straight into WhatsApp sales.",
       stacks: ["React", "TailwindCSS"],
@@ -190,7 +112,6 @@ function Portfolio() {
     },
     {
       id: "oneclick-tutors",
-      folder: "oneclick-tutors",
       title: "Oneclick Tutors",
       desc: "An AI-powered study platform for NOUN students, built with the Claude API.",
       stacks: ["React", "Claude API"],
@@ -233,7 +154,7 @@ function Portfolio() {
 
         <div className="grid md:grid-cols-2 grid-cols-1 gap-4 md:gap-6">
           {portfolio.map((p) => (
-            <ProjectCard key={p.id} p={p} onOpen={setActiveProject} />
+            <ProjectCard key={p.id} p={p} />
           ))}
         </div>
       </div>
@@ -259,11 +180,6 @@ function Portfolio() {
           ))}
         </div>
       </div>
-
-      <ProjectOverlay
-        project={activeProject}
-        onClose={() => setActiveProject(null)}
-      />
     </section>
   );
 }
