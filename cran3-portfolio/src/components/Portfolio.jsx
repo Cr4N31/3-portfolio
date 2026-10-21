@@ -76,7 +76,7 @@ function Portfolio() {
       desc: "A platform built to empower women through networking programs, skills development and access to essential resources and empowering independent financially secure lives.",
       stacks: ["ReactJs", "TailwindCSS", "Javascript"],
       img: cygnetsquare,
-      link: "https://forfoxsakecro.de/",
+      link:"https://cygnetsquare.com",
     },
     {
       id: "ffs",
