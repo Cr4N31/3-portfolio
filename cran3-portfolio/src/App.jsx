@@ -5,7 +5,7 @@ import Service from "./components/Service";
 import Portfolio from "./components/Portfolio";
 import Carousel from "./shared/Carousel";
 import Contact from "./components/contact";
-import Footer from "./shared/Footer";
+import Footer from "./shared/footer";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
